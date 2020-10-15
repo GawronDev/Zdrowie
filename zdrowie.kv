@@ -1,0 +1,339 @@
+#:import Ustawienia ustawienia
+#:import Map map
+#:import CardTransition kivy.uix.screenmanager.CardTransition
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import SwapTransition kivy.uix.screenmanager.SwapTransition
+#:import WipeTransition kivy.uix.screenmanager.WipeTransition
+#:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+
+<Map>:
+
+<ToolbarWithImage>:
+
+<ItemDrawer>:
+    theme_text_color: "Custom"
+    on_release: self.parent.set_color_item(self)
+
+    IconLeftWidget:
+        id: icon
+        icon: root.icon
+        theme_text_color: "Custom"
+        text_color: root.text_color
+
+<ItemDrawerException>:
+    theme_text_color: "Custom"
+
+    IconLeftWidget:
+        id: icon
+        icon: root.icon
+        theme_text_color: "Custom"
+        text_color: root.text_color
+
+
+<ContentNavigationDrawer>:
+    orientation: "vertical"
+    padding: "8dp"
+    spacing: "8dp"
+    anchor: anchor
+
+    AnchorLayout:
+        id: anchor
+        clock: clock
+        anchor_x: "center"
+        size_hint_y: None
+        height: clock.height
+
+        DateTimeClock:
+            id: clock
+            orientation: "vertical"
+
+            TimeLabel:
+                clock: clock
+                color: app.theme_cls.primary_dark
+                halign: "center"
+                font_style: "H4"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            DateLabel:
+                clock: clock
+                color: app.theme_cls.primary_light
+                halign: "center"
+                font_style: "H6"
+                size_hint_y: None
+                height: self.texture_size[1]
+                text: clock.date
+
+    ScrollView:
+        DrawerList:
+            id: md_list
+            ItemDrawer:
+                icon: "home"
+                text: "Aktualnosci"
+                text_color: self.theme_cls.primary_color
+                on_release:
+                    root.secondary_screen_manager.current = "news"
+            ItemDrawer:
+                icon: "map-legend"
+                text: "Mapa COVID-19"
+                on_release:
+                    root.secondary_screen_manager.current = "map"
+            ItemDrawer:
+                icon: "contact-phone"
+                text: "Numery pomocy"
+                on_release:
+                    root.secondary_screen_manager.current = "phone_numbers"
+            ItemDrawer:
+                icon: "account-heart"
+                text: "E-Diagnoza"
+                on_release:
+                    root.secondary_screen_manager.current = "diagnose"
+            ItemDrawerException:
+                icon: "settings"
+                text: "Ustawienia"
+                on_release: root.main_screen_manager.current = "settings"
+
+
+
+
+Screen:
+
+    ScreenManager:
+        id: main_screen_manager
+        transition: SlideTransition()
+
+        Screen:
+            name: "main_screen"
+
+            ToolbarWithImage:
+                pos_hint: {"top": 1}
+                image_source: "images/logo_light.png"
+                id: toolbar
+                anchor_title: "center"
+                elevation: 10
+                right_action_items: [['', lambda x: print("woohoo")]]
+                left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+
+            NavigationLayout:
+                x: toolbar.height
+
+                ScreenManager:
+                    id: secondary_screen_manager
+                    transition: SwapTransition()
+
+                    Screen:
+                        name: "news"
+
+                        MDLabel:
+                            pos: self.pos
+                            text: "Aktualnosci"
+
+                    Screen:
+                        size_hint_y: 1.0 - toolbar.height/root.height
+
+                        name: "map"
+
+                        Map:
+                            id: corona_map
+                            double_tap_zoom: True
+                            zoom: 3
+                            on_zoom:
+                                self.zoom = 3 if self.zoom < 3 else self.zoom
+
+                            on_lat:
+                                self.start_get_markers_in_fov()
+
+                            on_lon:
+                                self.start_get_markers_in_fov()
+
+
+
+                    Screen:
+                        size_hint_y: 1.0 - toolbar.height/root.height
+                        name: "phone_numbers"
+                        MDLabel:
+                            pos: self.pos
+                            text: "Numery telefonu"
+
+                    Screen:
+                        name: "diagnose"
+
+                        MDLabel:
+                            pos: self.pos
+                            text: "diagnoza"
+
+            MDNavigationDrawer:
+                id: nav_drawer
+
+                ContentNavigationDrawer:
+                    id: content_drawer
+                    main_screen_manager: main_screen_manager
+                    secondary_screen_manager: secondary_screen_manager
+
+        Screen:
+            name: "settings"
+
+            MDToolbar:
+                type: "top"
+                id: settings_toolbar
+                ustawienia: ustawienia
+                pos_hint: {"top": 1}
+                title: "Ustawienia"
+                anchor_title: "center"
+                bold: False
+                elevation: 10
+                right_action_items: [["", lambda x: x]]
+                left_action_items:
+                    [['arrow-left', lambda x: ustawienia.back_to_home_screen()]]
+
+            Screen:
+                size_hint_y: 1.0 - settings_toolbar.height/root.height
+
+                ScrollView:
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    BoxLayout:
+                        id: list
+                        size_hint: 1, None
+                        height: self.minimum_height
+                        orientation: "vertical"
+
+                        TwoLineIconListItem:
+                            text: "Kolor aplikacji"
+                            secondary_text: "Zmie\u0144 kolor aplikacji"
+                            on_release:
+                                main_screen_manager.current = "color_settings"
+
+                            IconLeftWidget:
+                                icon: "format-color-fill"
+
+                        TwoLineIconListItem:
+                            text: u"J\u0119zyk"
+                            secondary_text: "Zmie\u0144 j\u0119zyk aplikacji"
+
+                            IconLeftWidget:
+                                icon: "earth"
+
+        Screen:
+            name: "color_settings"
+
+            MDToolbar:
+                type: "top"
+                id: color_toolbar
+                ustawienia: ustawienia
+                pos_hint: {"top": 1}
+                title: "Kolor aplikacji"
+                anchor_title: "center"
+                bold: False
+                elevation: 10
+                right_action_items: [["", lambda x: x]]
+                left_action_items:
+                    [['arrow-left', lambda x: ustawienia.back_to_settings()]]
+
+            Screen:
+                size_hint_y: 1.0 - color_toolbar.height/root.height
+
+                ScrollView:
+                    do_scroll_x: False
+                    do_scroll_y: True
+                    Ustawienia:
+                        main_screen_manager: main_screen_manager
+                        secondary_screen_manager: secondary_screen_manager
+                        nav_drawer: nav_drawer
+                        content_drawer: content_drawer
+                        id: ustawienia
+                        size_hint: 1, 1
+                        cols: 3
+                        padding: 25
+                        spacing: 25
+
+                        Button:
+                            # Red
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: .77, .15, .15, 1
+                            on_release:
+                                app.change_primary_color("Red")
+                        Button:
+                            # Pink
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 173/255, 20/255, 87/255, 1
+                            on_release:
+                                app.change_primary_color("Pink")
+                        Button:
+                            # Purple
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 106/255, 27/255, 154/255, 1
+                            on_release:
+                                app.change_primary_color("Purple")
+                        Button:
+                            # Deep Purple
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 69/255, 39/255, 160/255, 1
+                            on_release:
+                                app.change_primary_color("DeepPurple")
+                        Button:
+                            # Indigo
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 40/255, 53/255, 147/255, 1
+                            on_release:
+                                app.change_primary_color("Indigo")
+                        Button:
+                            # Blue
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 21/255, 101/255, 192/255, 1
+                            on_release:
+                                app.change_primary_color("Blue")
+                        Button:
+                            # Teal
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 0, 105/255, 92/255, 1
+                            on_release:
+                                app.change_primary_color("Teal")
+                        Button:
+                            # Green
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 46/255, 125/255, 50/255, 1
+                            on_release:
+                                app.change_primary_color("Green")
+                        Button:
+                            # Yellow
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 249/255, 168/255, 37/255, 1
+                            on_release:
+                                app.change_primary_color("Yellow")
+                        Button:
+                            # Orange
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 239/255, 108/255, 0/255, 1
+                            on_release:
+                                app.change_primary_color("Orange")
+                        Button:
+                            # Brown
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 78/255, 52/255, 46/255, 1
+                            on_release:
+                                app.change_primary_color("Brown")
+                        Button:
+                            # Blue Gray
+                            size: 50, 50
+                            background_normal: ''
+                            background_color: 55/255, 71/255, 79/255, 1
+                            on_release:
+                                app.change_primary_color("BlueGray")
+
+
