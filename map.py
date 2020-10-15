@@ -70,7 +70,7 @@ class Map(MapView):
                 self.loaded_markets.append(marker)
                 self.add_widget(marker)
 
-            i += 1
+            i += 2
 
 class CovidMarker(MapMarkerPopup):
     def __init__(self, country, capital, code, **kwargs):
