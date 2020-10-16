@@ -1,5 +1,6 @@
 from kivy_garden.mapview import MapView
 from kivy_garden.mapview import MapMarkerPopup
+from kivymd.uix.dialog import MDDialog
 import pandas as pd
 from kivy.clock import Clock
 
@@ -13,8 +14,45 @@ class Map(MapView):
         super().__init__(**kwargs)
         self.data = []
         self.loaded_markets = []
+        self.menu_data = {
+            'plus': 'Powiększ mape',
+            'minus': 'Oddal mape',
+            'magnify': 'Znajdź',
+            "map-marker-circle": 'Wyśrodkuj na mnie',
+            'information-variant': "Informacje",
+        }
+
+    def zoom_plus(self, *args):
+        """Funckja przybliżająca mape"""
+        self.zoom += 1
+
+    def zoom_minus(self, *args):
+        """Funckcja oddalająca mape mape"""
+        self.zoom -= 1
+
+    def center_on_me(self):
+        """Funkcja środkująca mape na dancyh współrzędnych"""
+
+    def menu_data_callback(self, instance):
+        """Funkcja obsługująca menu"""
+
+        if instance.icon == "minus":
+            self.zoom_minus()
+        elif instance.icon == "plus":
+            self.zoom_plus()
+        elif instance.icon == "map-marker-circle":
+            self.center_on_me()
+        elif instance.icon == "magnify":
+            self.open_search_dialog()
+        elif instance.icon == "information-variant":
+            self.open_info()
+
+    def open_search_dialog(self):
+
 
     def load_csv_file(self):
+        """Funkcja ładująca dane z pliku .csv"""
+
         col_list = ["country", "capital", "lat", "lon", "code", "continent"]
 
         self.data = pd.read_csv('countries.csv', error_bad_lines=False, encoding='cp1252', warn_bad_lines=False, sep=';'
@@ -83,4 +121,7 @@ class CovidMarker(MapMarkerPopup):
 
     def on_release(self, *args):
         print(self.country_name)
+
+class SearchPopupDialog(MDDialog):
+    """Klasa okienka wyskakującego do szukania państw"""
 

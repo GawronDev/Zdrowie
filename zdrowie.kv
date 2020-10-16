@@ -135,7 +135,6 @@ Screen:
 
                     Screen:
                         size_hint_y: 1.0 - toolbar.height/root.height
-
                         name: "map"
 
                         Map:
@@ -151,7 +150,16 @@ Screen:
                             on_lon:
                                 self.start_get_markers_in_fov()
 
+                        MDFloatingActionButtonSpeedDial:
+                            data: corona_map.menu_data
+                            hint_animation: True
+                            icon: "map-marker-circle"
+                            callback: corona_map.menu_data_callback
+                            md_bg_color: app.theme_cls.primary_color
+                            elevation_normal: 10
 
+
+# right_action_items: [["plus", lambda x: corona_map.zoom_plus()], ["minus", lambda x: corona_map.zoom_minus()], ["magnify", lambda x: print("Search")], ["information-variant", lambda x: print("Info")]]
 
                     Screen:
                         size_hint_y: 1.0 - toolbar.height/root.height
@@ -209,7 +217,7 @@ Screen:
                             text: "Kolor aplikacji"
                             secondary_text: "Zmie\u0144 kolor aplikacji"
                             on_release:
-                                main_screen_manager.current = "color_settings"
+                                ustawienia.open_theme_picker()
 
                             IconLeftWidget:
                                 icon: "format-color-fill"
@@ -253,90 +261,3 @@ Screen:
                         cols: 3
                         padding: 25
                         spacing: 25
-
-                        Button:
-                            # Red
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: .77, .15, .15, 1
-                            on_release:
-                                app.change_primary_color("Red")
-                        Button:
-                            # Pink
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 173/255, 20/255, 87/255, 1
-                            on_release:
-                                app.change_primary_color("Pink")
-                        Button:
-                            # Purple
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 106/255, 27/255, 154/255, 1
-                            on_release:
-                                app.change_primary_color("Purple")
-                        Button:
-                            # Deep Purple
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 69/255, 39/255, 160/255, 1
-                            on_release:
-                                app.change_primary_color("DeepPurple")
-                        Button:
-                            # Indigo
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 40/255, 53/255, 147/255, 1
-                            on_release:
-                                app.change_primary_color("Indigo")
-                        Button:
-                            # Blue
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 21/255, 101/255, 192/255, 1
-                            on_release:
-                                app.change_primary_color("Blue")
-                        Button:
-                            # Teal
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 0, 105/255, 92/255, 1
-                            on_release:
-                                app.change_primary_color("Teal")
-                        Button:
-                            # Green
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 46/255, 125/255, 50/255, 1
-                            on_release:
-                                app.change_primary_color("Green")
-                        Button:
-                            # Yellow
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 249/255, 168/255, 37/255, 1
-                            on_release:
-                                app.change_primary_color("Yellow")
-                        Button:
-                            # Orange
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 239/255, 108/255, 0/255, 1
-                            on_release:
-                                app.change_primary_color("Orange")
-                        Button:
-                            # Brown
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 78/255, 52/255, 46/255, 1
-                            on_release:
-                                app.change_primary_color("Brown")
-                        Button:
-                            # Blue Gray
-                            size: 50, 50
-                            background_normal: ''
-                            background_color: 55/255, 71/255, 79/255, 1
-                            on_release:
-                                app.change_primary_color("BlueGray")
-
-
