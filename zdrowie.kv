@@ -80,7 +80,9 @@
                 icon: "map-legend"
                 text: "Mapa COVID-19"
                 on_release:
+                    root.corona_map.start_get_markers_in_fov()
                     root.secondary_screen_manager.current = "map"
+
             ItemDrawer:
                 icon: "contact-phone"
                 text: "Numery pomocy"
@@ -172,6 +174,7 @@ Screen:
                     id: content_drawer
                     main_screen_manager: main_screen_manager
                     secondary_screen_manager: secondary_screen_manager
+                    corona_map: corona_map
 
         Screen:
             name: "settings"

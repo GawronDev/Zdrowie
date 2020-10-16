@@ -28,23 +28,21 @@ class Map(MapView):
         except:
             pass
 
-        self.get_marker_timer = Clock.schedule_once(self.get_markers_in_fov, 1)
+        self.get_marker_timer = Clock.schedule_once(self.get_markers_in_fov, 0.5)
 
     def get_markers_in_fov(self, *args):
         """Funckja ładująca markery"""
 
         # Sprawdzam współżędne każdego z rogów
-        print(self.get_bbox())
-
         # Przypisuje je do pojedyńczych zmiennych
         min_lat, min_lon, max_lat, max_lon = self.get_bbox()
 
-
-        visible = self.data.loc[(self.data['lat'].between(min_lat, max_lat, inclusive=False)) & (self.data['lon'].between(min_lon, max_lon, inclusive=False))]
+        visible = self.data.loc[(self.data['lat'].between(min_lat, max_lat, inclusive=False))
+                                & (self.data['lon'].between(min_lon, max_lon, inclusive=False))]
 
         visible_list = visible.values.tolist()
 
-        print(visible_list)
+        # print(visible_list)
 
         self.add_markers_to_map(visible_list)
 
@@ -52,8 +50,8 @@ class Map(MapView):
 
         i = 0
         for country in visible_list:
-            print(visible_list[i])
-            print("Index:" + str(i) + "\n")
+            # print(visible_list[i])
+            # print("Index:" + str(i) + "\n")
 
             lat = visible_list[i][2]
             lon = visible_list[i][3]
@@ -70,7 +68,8 @@ class Map(MapView):
                 self.loaded_markets.append(marker)
                 self.add_widget(marker)
 
-            i += 2
+            i += 1
+
 
 class CovidMarker(MapMarkerPopup):
     def __init__(self, country, capital, code, **kwargs):
