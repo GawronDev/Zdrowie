@@ -1,6 +1,9 @@
 from kivy_garden.mapview import MapView
 from kivy_garden.mapview import MapMarkerPopup
 from kivymd.uix.dialog import MDDialog
+from kivy.uix.boxlayout import BoxLayout
+from kivymd.uix.button import MDFlatButton
+from main import Zdrowie
 import pandas as pd
 from kivy.clock import Clock
 
@@ -17,10 +20,28 @@ class Map(MapView):
         self.menu_data = {
             'plus': 'Powiększ mape',
             'minus': 'Oddal mape',
-            'magnify': 'Znajdź',
-            "map-marker-circle": 'Wyśrodkuj na mnie',
             'information-variant': "Informacje",
+            "map-marker-circle": 'Wyśrodkuj na mnie',
+            'magnify': 'Znajdź',
         }
+
+        self.app = Zdrowie()
+
+        self.dialog = MDDialog(
+            id="dialog_accept",
+            size_hint_x=0.8,
+            title="Wyszukaj kraj:",
+            type="custom",
+            content_cls=Content(),
+            buttons=[
+                CustomCancelButton(
+                    text="ANULUJ",
+                ),
+                CustomAcceptButton(
+                    text="SZUKAJ",
+                ),
+            ],
+        )
 
     def zoom_plus(self, *args):
         """Funckja przybliżająca mape"""
@@ -48,7 +69,13 @@ class Map(MapView):
             self.open_info()
 
     def open_search_dialog(self):
+        """Funkcja otwierająca okienko dialogu"""
+        self.dialog.open()
 
+    def accept(self):
+        """Funkcja wywoływana gdy zostanie kliknięty przycisk ok"""
+        text_field = self.dialog_accept.country_name.text
+        print(text_field)
 
     def load_csv_file(self):
         """Funkcja ładująca dane z pliku .csv"""
@@ -122,6 +149,19 @@ class CovidMarker(MapMarkerPopup):
     def on_release(self, *args):
         print(self.country_name)
 
-class SearchPopupDialog(MDDialog):
-    """Klasa okienka wyskakującego do szukania państw"""
 
+class CustomCancelButton(MDFlatButton):
+
+    def on_press(self):
+        self.parent.parent.parent.parent.dismiss()
+
+
+class CustomAcceptButton(MDFlatButton):
+
+    def on_press(self):
+        dialog = Map()
+        dialog.accept()
+
+
+class Content(BoxLayout):
+    pass

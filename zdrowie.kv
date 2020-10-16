@@ -9,6 +9,21 @@
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 
+<Content>
+    country_name: country_name
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    size_hint_x: .8
+    height: "60dp"
+
+    MDTextField:
+        id: country_name
+        hint_text: "Kraj"
+        helper_text: "To pole jest wymagane"
+        helper_text_mode: "on_error"
+        required: True
+
 <Map>:
 
 <ToolbarWithImage>:
@@ -153,7 +168,7 @@ Screen:
                         MDFloatingActionButtonSpeedDial:
                             data: corona_map.menu_data
                             hint_animation: True
-                            icon: "map-marker-circle"
+                            icon: "menu-open"
                             callback: corona_map.menu_data_callback
                             md_bg_color: app.theme_cls.primary_color
                             elevation_normal: 10
