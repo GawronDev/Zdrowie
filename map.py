@@ -1,6 +1,8 @@
 from kivy_garden.mapview import MapView
 from kivy_garden.mapview import MapMarkerPopup
 from kivymd.uix.dialog import MDDialog
+from kivy.uix.boxlayout import BoxLayout
+from kivymd.uix.button import MDFlatButton
 import pandas as pd
 from kivy.clock import Clock
 
@@ -48,6 +50,8 @@ class Map(MapView):
             self.open_info()
 
     def open_search_dialog(self):
+        self.dialog = SearchPopupDialog()
+        self.dialog.open()
 
 
     def load_csv_file(self):
@@ -122,6 +126,23 @@ class CovidMarker(MapMarkerPopup):
     def on_release(self, *args):
         print(self.country_name)
 
+
+class Content(BoxLayout):
+    pass
+
+
 class SearchPopupDialog(MDDialog):
     """Klasa okienka wyskakującego do szukania państw"""
+    content_cls = Content()
+    type = "custom"
+    buttons = [
+        MDFlatButton(
+            text="CANCEL",
+        ),
+        MDFlatButton(
+            text="OK",
+        ),
+    ]
+
+
 

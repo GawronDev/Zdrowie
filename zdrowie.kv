@@ -9,6 +9,24 @@
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 
+<Content>
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+
+    MDTextField:
+        id: city
+        hint_text: "City"
+
+    MDTextField:
+        hint_text: "Street"
+
+<SearchPopupDialog>:
+    title: "Wyszukaj kraj"
+    size_hint_x: 0.8
+
+
 <Map>:
 
 <ToolbarWithImage>:
