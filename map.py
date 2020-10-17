@@ -3,7 +3,9 @@ from kivy_garden.mapview import MapMarkerPopup
 from kivymd.uix.dialog import MDDialog
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.button import MDFlatButton
-from main import Zdrowie
+from kivy.uix.screenmanager import Screen
+from kivymd.uix.list import OneLineIconListItem
+from kivy.properties import StringProperty
 import pandas as pd
 from kivy.clock import Clock
 
@@ -16,7 +18,8 @@ class Map(MapView):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.data = []
-        self.loaded_markets = []
+        self.countries_list = []
+        self.loaded_markers = []
         self.menu_data = {
             'plus': 'Powiększ mape',
             'minus': 'Oddal mape',
@@ -25,23 +28,9 @@ class Map(MapView):
             'magnify': 'Znajdź',
         }
 
-        self.app = Zdrowie()
-
-        self.dialog = MDDialog(
-            id="dialog_accept",
-            size_hint_x=0.8,
-            title="Wyszukaj kraj:",
-            type="custom",
-            content_cls=Content(),
-            buttons=[
-                CustomCancelButton(
-                    text="ANULUJ",
-                ),
-                CustomAcceptButton(
-                    text="SZUKAJ",
-                ),
-            ],
-        )
+    def open_search_dialog(self):
+        self.country_field.text = ""
+        self.main_screen_manager.current = "search_dialog"
 
     def zoom_plus(self, *args):
         """Funckja przybliżająca mape"""
@@ -68,15 +57,6 @@ class Map(MapView):
         elif instance.icon == "information-variant":
             self.open_info()
 
-    def open_search_dialog(self):
-        """Funkcja otwierająca okienko dialogu"""
-        self.dialog.open()
-
-    def accept(self):
-        """Funkcja wywoływana gdy zostanie kliknięty przycisk ok"""
-        text_field = self.dialog_accept.country_name.text
-        print(text_field)
-
     def load_csv_file(self):
         """Funkcja ładująca dane z pliku .csv"""
 
@@ -84,6 +64,8 @@ class Map(MapView):
 
         self.data = pd.read_csv('countries.csv', error_bad_lines=False, encoding='cp1252', warn_bad_lines=False, sep=';'
                                 , usecols=col_list, na_filter=False)
+
+        self.countries_list = self.data.values.tolist()
 
     def start_get_markers_in_fov(self):
         """Funckja stopująca ładowanie się markerów przy ciągłym scrollowaniu"""
@@ -127,16 +109,24 @@ class Map(MapView):
             marker = CovidMarker(lat=lat, lon=lon, country=country_name, capital=country_capital,
                                  code=country_code)
 
-            if marker in self.loaded_markets:
+            if marker in self.loaded_markers:
                 continue
             else:
-                self.loaded_markets.append(marker)
+                self.loaded_markers.append(marker)
                 self.add_widget(marker)
 
             i += 1
 
+    def go_to_country(self, latitude, lontitude):
+        self.lat = latitude
+        self.lon = lontitude
+        self.zoom = 6
+
+        print(self.lat, self.lon)
+
 
 class CovidMarker(MapMarkerPopup):
+    """Klasa markera na mapie"""
     def __init__(self, country, capital, code, **kwargs):
         super().__init__(**kwargs)
 
@@ -150,18 +140,53 @@ class CovidMarker(MapMarkerPopup):
         print(self.country_name)
 
 
-class CustomCancelButton(MDFlatButton):
-
-    def on_press(self):
-        self.parent.parent.parent.parent.dismiss()
-
-
-class CustomAcceptButton(MDFlatButton):
-
-    def on_press(self):
-        dialog = Map()
-        dialog.accept()
+class CustomOneLineIconListItem(OneLineIconListItem):
+    """Klasa rzędu z listy krajów"""
+    icon = StringProperty()
 
 
-class Content(BoxLayout):
-    pass
+class SearchBox(Screen):
+    def set_country_filter(self, text="", search=False):
+        """Klasa filtrująca kraje"""
+
+        self.rv.data = []
+
+        for country_name in self.corona_map.countries_list:
+            country = country_name[0]
+            if search:
+                if text in country:
+                    self.rv.data.append({"viewclass": "CustomOneLineIconListItem",
+                                         "icon": "earth",
+                                         "text": country,
+                                         })
+
+            else:
+                self.rv.data.append({"viewclass": "CustomOneLineIconListItem",
+                                     "icon": "earth",
+                                     "text": country,
+                                     })
+
+    def set_coordinates(self, country_name):
+        """Funkcja ustawiająca koordynaty na wybrane państwo"""
+        print(country_name)
+
+        contry_list = self.corona_map.countries_list
+
+        country_lat = None
+        country_lon = None
+        for country in contry_list:
+            if country_name in country:
+                print("Przenoszenie do:", country)
+                country_lat = country[2]
+                country_lon = country[3]
+
+                self.corona_map.go_to_country(country_lat, country_lon)
+
+                self.ustawienia.back_to_home_screen()
+
+            else:
+                pass
+
+
+
+

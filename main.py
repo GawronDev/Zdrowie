@@ -53,12 +53,9 @@ class Zdrowie(MDApp):
     # Aplikacja dostępna jest w dwóch językach, i tutaj jest zmienna definiująca który język wyświetlać.
 
     language = "pl"
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        # Wartości domyślne
-        self.color = "Red"
-        self.toolbar_image_source = "images/logo.png"
+    search_dialog = None
+    toolbar_image_source = "images/logo.png"
+    color = "Red"
 
     def build(self):
         f = open("config.dat", "rb")
@@ -73,6 +70,7 @@ class Zdrowie(MDApp):
     def on_start(self):
         self.root.ids.content_drawer.update()
         self.root.ids.corona_map.load_csv_file()
+        self.root.ids.search_box.set_country_filter()
 
     def change_primary_color(self, color):
         """Funkcja zmienająca i zapsuająca kolor aplikacji"""

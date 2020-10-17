@@ -1,5 +1,6 @@
 #:import Ustawienia ustawienia
 #:import Map map
+#:import images_path kivymd.images_path
 #:import CardTransition kivy.uix.screenmanager.CardTransition
 #:import NoTransition kivy.uix.screenmanager.NoTransition
 #:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
@@ -9,20 +10,11 @@
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 
-<Content>
-    country_name: country_name
-    orientation: "vertical"
-    spacing: "12dp"
-    size_hint_y: None
-    size_hint_x: .8
-    height: "60dp"
+<CustomOneLineIconListItem>:
+    on_release: self.parent.parent.search_box.set_coordinates(self.text)
+    IconLeftWidget:
+        icon: root.icon
 
-    MDTextField:
-        id: country_name
-        hint_text: "Kraj"
-        helper_text: "To pole jest wymagane"
-        helper_text_mode: "on_error"
-        required: True
 
 <Map>:
 
@@ -154,6 +146,8 @@ Screen:
 
                         Map:
                             id: corona_map
+                            country_field: country_field
+                            main_screen_manager: main_screen_manager
                             double_tap_zoom: True
                             zoom: 3
                             on_zoom:
@@ -172,9 +166,6 @@ Screen:
                             callback: corona_map.menu_data_callback
                             md_bg_color: app.theme_cls.primary_color
                             elevation_normal: 10
-
-
-# right_action_items: [["plus", lambda x: corona_map.zoom_plus()], ["minus", lambda x: corona_map.zoom_minus()], ["magnify", lambda x: print("Search")], ["information-variant", lambda x: print("Info")]]
 
                     Screen:
                         size_hint_y: 1.0 - toolbar.height/root.height
@@ -198,6 +189,7 @@ Screen:
                     main_screen_manager: main_screen_manager
                     secondary_screen_manager: secondary_screen_manager
                     corona_map: corona_map
+
 
         Screen:
             name: "settings"
@@ -243,6 +235,68 @@ Screen:
 
                             IconLeftWidget:
                                 icon: "earth"
+        Screen:
+            name: "search_dialog"
+
+            MDToolbar:
+                type: "top"
+                id: search_toolbar
+                ustawienia: ustawienia
+                pos_hint: {"top": 1}
+                title: "Wyszukaj kraj"
+                anchor_title: "center"
+                bold: False
+                elevation: 10
+                right_action_items: [["", lambda x: x]]
+                left_action_items:
+                    [['arrow-left', lambda x: ustawienia.back_to_home_screen()]]
+
+            SearchBox:
+                size_hint_y: 1.0 - search_toolbar.height/root.height
+                id: search_box
+                rv: rv
+                country_field: country_field
+                corona_map: corona_map
+                ustawienia: ustawienia
+
+                BoxLayout:
+
+                    rv: rv
+                    country_field: country_field
+                    corona_map: corona_map
+                    orientation: "vertical"
+                    padding: "20dp"
+                    spacing: "10dp"
+
+                    BoxLayout:
+                        size_hint_y: None
+                        height: self.minimum_height
+
+                        MDTextField:
+                            id: country_field
+                            search_box: search_box
+                            hint_text: "Kraj"
+                            helper_text: u"Wpisz nazw\u0119 kraju w j\u0119zyku angielskim"
+                            helper_text_mode: "on_focus"
+                            on_text: search_box.set_country_filter(self.text, True)
+
+
+                    RecycleView:
+                        id: rv
+                        search_box: search_box
+                        key_viewclass: 'viewclass'
+                        key_size: 'height'
+
+                        RecycleBoxLayout:
+                            padding: dp(10)
+                            default_size: None, dp(48)
+                            default_size_hint: 1, None
+                            size_hint_y: None
+                            height: self.minimum_height
+                            orientation: 'vertical'
+
+
+
 
         Screen:
             name: "color_settings"
