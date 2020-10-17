@@ -15,6 +15,7 @@ downloads/
 eggs/
 share/
 Scripts/
+cache/
 Lib/
 .eggs/
 lib/
