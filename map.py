@@ -25,6 +25,7 @@ class Map(MapView):
     get_marker_timer = None
     website_content = []
     updated_data_list = []
+    updated_data = []
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -191,21 +192,9 @@ class Map(MapView):
                 # print("Dodano", data[0])
                 self.updated_data_list.append(data)
 
-        print(self.updated_data_list)
+        col_list = ["country", "capital", "lat", "lon", "code", "polish", "cases", "deaths", "recov", "flag_src"]
 
-        for index, row in df.iterrows():
-            country = row['country']
-            cases_value = row['cases']
-            death_value = row['deaths']
-            recov_value = row['recov']
-            flag_src = row['flag_src']
-            # print(row['country'], row['cases'], row['deaths'], row['recov'], row['flag_src'])
-
-            for country_object in self.updated_data_list:
-                if country == country_object[0]:
-                    print(country, country_object[0])
-                    print(df[country])
-
+        self.updated_data = pd.DataFrame(self.updated_data_list, columns=col_list)
 
     def menu_data_callback(self, instance):
         """Funkcja obsługująca menu"""
@@ -222,13 +211,9 @@ class Map(MapView):
             self.open_info()
 
     def load_csv_file(self):
-        """Funkcja ładująca dane z pliku .csv"""
-        col_list = ["country", "capital", "lat", "lon", "code", "polish", "cases", "deaths", "recov", "flag_src"]
+        """Funkcja ładująca dane"""
 
-        self.data = pd.read_csv('countries_pl.csv', error_bad_lines=False, encoding='cp1252', warn_bad_lines=False,
-                                sep=';', usecols=col_list, na_filter=False)
-
-        self.countries_list = self.data.values.tolist()
+        self.countries_list = self.updated_data.values.tolist()
 
     def start_get_markers_in_fov(self):
         """Funckja stopująca ładowanie się markerów przy ciągłym scrollowaniu"""
@@ -247,12 +232,10 @@ class Map(MapView):
         # Przypisuje je do pojedyńczych zmiennych
         min_lat, min_lon, max_lat, max_lon = self.get_bbox()
 
-        visible = self.data.loc[(self.data['lat'].between(min_lat, max_lat, inclusive=False))
-                                & (self.data['lon'].between(min_lon, max_lon, inclusive=False))]
+        visible = self.updated_data.loc[(self.updated_data['lat'].between(min_lat, max_lat, inclusive=False))
+                                & (self.updated_data['lon'].between(min_lon, max_lon, inclusive=False))]
 
         visible_list = visible.values.tolist()
-
-        # print(visible_list)
 
         self.add_markers_to_map(visible_list)
 
@@ -267,9 +250,14 @@ class Map(MapView):
             country_name_pl = visible_list[i][5]
             country_capital = visible_list[i][2]
             country_code = visible_list[i][4]
+            country_cases = visible_list[i][6]
+            country_deaths = visible_list[i][7]
+            country_recoveries = visible_list[i][8]
+            country_image = visible_list[i][9]
 
             marker = CovidMarker(lat=lat, lon=lon, country_en=country_name_en, country_pl=country_name_pl,
-                                 capital=country_capital, code=country_code)
+                                 capital=country_capital, code=country_code, cases=country_cases,
+                                 deaths=country_deaths, recoveries=country_recoveries, image=country_image)
 
             if marker in self.loaded_markers:
                 continue
@@ -290,24 +278,46 @@ class Map(MapView):
 
 class CovidMarker(MapMarkerPopup):
     """Klasa markera na mapie"""
-    def __init__(self, country_pl, country_en, capital, code, **kwargs):
+    def __init__(self, country_pl, country_en, capital, code, cases, deaths, recoveries, image, **kwargs):
         super().__init__(**kwargs)
-
-        self.source = "images/map_marker.png"
-
         self.app = Zdrowie()
 
         self.country_name_pl = country_pl
         self.country_name_en = country_en
         self.capital_name = capital
         self.country_code = code
+        self.cases = cases
+        self.deaths = deaths
+        self.recoveries = recoveries
+        self.image = image
+
+        # W zależności od ilości zakżeń, przypisuje markerowi inny kolor
+        self.cases_int = self.cases.replace(",", "")
+
+        try:
+            if 50000 > int(self.cases_int) > 0:
+                self.source = "images/map_marker_low.png"
+            elif 100000 > int(self.cases_int) >= 50000:
+                self.source = "images/map_marker_more.png"
+            elif 250000> int(self.cases_int) >= 100000:
+                self.source = "images/map_marker_medium.png"
+            elif 400000 > int(self.cases_int) >= 250000:
+                self.source = "images/map_marker.png"
+            elif int(self.cases_int) >= 400000:
+                self.source = "images/map_marker_extreme.png"
+            else:
+                self.source = "images/map_marker_no_data.png"
+
+        except ValueError:
+            # Jeżeli wyskakuje nam ValueError to oznacza, że dany plik nie ma danych
+            self.source = "images/map_marker_no_data.png"
 
     def on_release(self, *args):
 
         if self.app.language == "pl":
-            print(self.country_name_pl)
+            print(self.country_name_pl, self.cases, self.deaths, self.recoveries)
         else:
-            print(self.country_name_en)
+            print(self.country_name_en, self.cases, self.deaths, self.recoveries)
 
 
 class CustomOneLineIconListItem(OneLineIconListItem):

@@ -1,9 +1,9 @@
 import pandas as pd
 
-df = pd.DataFrame({"country": ['Afghanistan', "Albania", "Algeria"], "cases": ["No data", "No data", "No data"],
+outdated_list = pd.DataFrame({"country": ['Afghanistan', "Albania", "Algeria"], "cases": ["No data", "No data", "No data"],
                    "deaths": ["No data", "No data", "No data"], "recov": ["No data", "No data", "No data"],
                    "flag_scr": ["No data", "No data", "No data"]})
-print(df)
+print(outdated_list)
 
 updated_list = [['Afghanistan', '40,141', '1,488', '33,561',
                  '//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/720px-Flag_of_Afghanistan.svg.png'],

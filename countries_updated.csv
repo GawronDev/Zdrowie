@@ -1,0 +1,246 @@
+,country,capital,lat,lon,code,polish,cases,deaths,recov,flag_src
+0,Afghanistan,Kabul,34.51666667,69.18333299999999,AF,Afganistan,"40,141","1,488","33,561",//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/720px-Flag_of_Afghanistan.svg.png
+1,Albania,Tirana,41.31666667,19.816667000000002,AL,Albania,"16,774",448,"10,001",//upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/21px-Flag_of_Albania.svg.png
+2,Algeria,Algiers,36.75,3.05,DZ,Algieria,"54,203","1,846","37,971",//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/720px-Flag_of_Algeria.svg.png
+3,Andorra,Andorra la Vella,42.5,1.516667,AD,Andora,"3,377",59,"2,057",//upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Andorra.svg/22px-Flag_of_Andorra.svg.png
+4,Angola,Luanda,-8.833333332999999,13.216667000000001,AO,Angola,"7,462",241,"3,022",//upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Flag_of_Angola.svg/720px-Flag_of_Angola.svg.png
+5,Anguilla,The Valley,18.21666667,-63.05,AI,Anguilla,3,0,3,//upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Anguilla.svg/720px-Flag_of_Anguilla.svg.png
+6,Antigua and Barbuda,Saint John’s,17.11666667,-61.85,AG,Antigua i Barbuda,113,3,100,//upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Antigua_and_Barbuda.svg/720px-Flag_of_Antigua_and_Barbuda.svg.png
+7,Argentina,Buenos Aires,-34.58333333,-58.666667000000004,AR,Argentyna,"979,106","26,107","791,161",//upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/720px-Flag_of_Argentina.svg.png
+8,Armenia,Yerevan,40.16666667,44.5,AM,Armenia,"63,000","1,067","47,925",//upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/720px-Flag_of_Armenia.svg.png
+9,Aruba,Oranjestad,12.51666667,-70.033333,AW,Aruba,"4,304",34,"3,983",//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Aruba.svg/720px-Flag_of_Aruba.svg.png
+10,Australia,Canberra,-35.26666667,149.133333,AU,Australia,"27,383",904,"25,098",//upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/720px-Flag_of_Australia_%28converted%29.svg.png
+11,Austria,Vienna,48.2,16.366667,AT,Austria,"64,806",892,"49,561",//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/720px-Flag_of_Austria.svg.png
+12,Azerbaijan,Baku,40.38333333,49.866667,AZ,Azerbejd¿an,"44,317",623,"39,903",//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/720px-Flag_of_Azerbaijan.svg.png
+13,Bahamas,Nassau,25.08333333,-77.35,BS,Bahamy,"5,628",116,"3,276",//upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flag_of_the_Bahamas.svg/720px-Flag_of_the_Bahamas.svg.png
+14,Bahrain,Manama,26.23333333,50.566666999999995,BH,Bahrajn,"77,571",293,"73,841",//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Bahrain.svg/720px-Flag_of_Bahrain.svg.png
+15,Bangladesh,Dhaka,23.71666667,90.4,BD,Bangladesz,"388,569","5,660","303,972",//upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/720px-Flag_of_Bangladesh.svg.png
+16,Barbados,Bridgetown,13.1,-59.61666700000001,BB,Barbados,219,7,195,//upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Flag_of_Barbados.svg/720px-Flag_of_Barbados.svg.png
+17,Belarus,Minsk,53.9,27.566667,BY,Bia³oruœ,"87,093",925,"79,429",//upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/720px-Flag_of_Belarus.svg.png
+18,Belgium,Brussels,50.83333333,4.3333330000000005,BE,Belgia,"213,115","10,392",No data,//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/720px-Flag_of_Belgium_%28civil%29.svg.png
+19,Belize,Belmopan,17.25,-88.766667,BZ,Belize,"2,728",43,"1,626",//upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Flag_of_Belize.svg/720px-Flag_of_Belize.svg.png
+20,Benin,Porto-Novo,6.483333332999999,2.6166669999999996,BJ,Benin,"2,478",41,"2,330",//upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Benin.svg/720px-Flag_of_Benin.svg.png
+21,Bermuda,Hamilton,32.28333333,-64.783333,BM,Bermudy,185,9,172,//upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flag_of_Bermuda.svg/720px-Flag_of_Bermuda.svg.png
+22,Bhutan,Thimphu,27.46666667,89.633333,BT,Bhutan,316,0,296,//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Flag_of_Bhutan.svg/720px-Flag_of_Bhutan.svg.png
+23,Bolivia,La Paz,-16.5,-68.15,BO,Boliwia,"139,710","8,463","104,202",//upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Bolivia.svg/22px-Flag_of_Bolivia.svg.png
+24,Bosnia and Herzegovina,Sarajevo,43.86666667,18.416667,BA,Boœnia i Hercegowina,"33,561",981,"24,773",//upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flag_of_Bosnia_and_Herzegovina.svg/720px-Flag_of_Bosnia_and_Herzegovina.svg.png
+25,Botswana,Gaborone,-24.63333333,25.9,BW,Botswana,"3,914",20,905,//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_Botswana.svg/720px-Flag_of_Botswana.svg.png
+26,Brazil,Brasilia,-15.78333333,-47.916667,BR,Brazylia,"5,224,362","153,690","4,635,315",//upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/22px-Flag_of_Brazil.svg.png
+27,British Virgin Islands,Road Town,18.41666667,-64.616667,VG,Brytyjskie Wyspy Dziewicze,71,1,66,//upload.wikimedia.org/wikipedia/commons/thumb/4/42/Flag_of_the_British_Virgin_Islands.svg/720px-Flag_of_the_British_Virgin_Islands.svg.png
+28,Bulgaria,Sofia,42.68333333,23.316667000000002,BG,Bu³garia,"29,108",968,"16,912",//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/720px-Flag_of_Bulgaria.svg.png
+29,Burkina Faso,Ouagadougou,12.36666667,-1.516667,BF,Burkina Faso,"2,343",65,"1,718",//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Burkina_Faso.svg/720px-Flag_of_Burkina_Faso.svg.png
+30,Burundi,Bujumbura,-3.366666667,29.35,BI,Burundi,536,1,497,//upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Burundi.svg/720px-Flag_of_Burundi.svg.png
+31,Cambodia,Phnom Penh,11.55,104.91666699999999,KH,Kambod¿a,283,0,280,//upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Cambodia.svg/720px-Flag_of_Cambodia.svg.png
+32,Cameroon,Yaounde,3.866666667,11.516667,CM,Kamerun,"21,203",423,"20,117",//upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/720px-Flag_of_Cameroon.svg.png
+33,Canada,Ottawa,45.41666667,-75.7,CA,Kanada,"196,321","9,746","165,446",//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/720px-Flag_of_Canada_%28Pantone%29.svg.png
+34,Cape Verde,Praia,14.91666667,-23.516667,CV,Wyspy Zielonego Przyl¹dka,"7,638",85,"6,473",//upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Cape_Verde.svg/720px-Flag_of_Cape_Verde.svg.png
+35,Cayman Islands,George Town,19.3,-81.383333,KY,Kajmany,233,1,212,//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_the_Cayman_Islands.svg/720px-Flag_of_the_Cayman_Islands.svg.png
+36,Central African Republic,Bangui,4.366666667,18.583333,CF,Republika Œrodkowoafrykañska,"4,854",62,"1,924",//upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Central_African_Republic.svg/720px-Flag_of_the_Central_African_Republic.svg.png
+37,Chad,N’Djamena,12.1,15.033332999999999,TD,Czad,"1,365",93,"1,179",//upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Flag_of_Chad.svg/720px-Flag_of_Chad.svg.png
+38,Chile,Santiago,-33.45,-70.666667,CL,Chile,"490,003","13,588","462,712",//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flag_of_Chile.svg/720px-Flag_of_Chile.svg.png
+39,China,Beijing,39.91666667,116.38333300000001,CN,Chiny,"85,672","4,634","80,786",//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/720px-Flag_of_the_People%27s_Republic_of_China.svg.png
+40,Colombia,Bogota,4.6,-74.083333,CO,Kolumbia,"952,371","28,803","847,467",//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/720px-Flag_of_Colombia.svg.png
+41,Comoros,Moroni,-11.7,43.233333,KM,Komory,502,7,485,//upload.wikimedia.org/wikipedia/commons/thumb/9/94/Flag_of_the_Comoros.svg/720px-Flag_of_the_Comoros.svg.png
+42,Costa Rica,San Jose,9.933333333,-84.083333,CR,Kostaryka,"95,514","1,183","58,816",//upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/720px-Flag_of_Costa_Rica.svg.png
+43,Croatia,Zagreb,45.8,16.0,HR,Chorwacja,"25,580",363,"20,053",//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/720px-Flag_of_Croatia.svg.png
+44,Cuba,Havana,23.11666667,-82.35,CU,Kuba,"6,170",125,"5,753",//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/720px-Flag_of_Cuba.svg.png
+45,Cyprus,Nicosia,35.16666667,33.366667,CY,Cypr,"2,581",25,"1,444",//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Cyprus.svg/720px-Flag_of_Cyprus.svg.png
+46,Czech Republic,Prague,50.08333333,14.466667000000001,CZ,Republika Czeska,"168,827","1,352","68,945",//upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/720px-Flag_of_the_Czech_Republic.svg.png
+47,Denmark,Copenhagen,55.66666667,12.583333,DK,Dania,"34,941",679,"28,917",//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png
+48,Djibouti,Djibouti,11.58333333,43.15,DJ,D¿ibuti,"5,452",61,"5,373",//upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_Djibouti.svg/720px-Flag_of_Djibouti.svg.png
+49,Dominica,Roseau,15.3,-61.4,DM,Dominika,33,0,29,//upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Flag_of_Dominica.svg/720px-Flag_of_Dominica.svg.png
+50,Dominican Republic,Santo Domingo,18.46666667,-69.9,DO,Republika Dominikany,"120,925","2,195","97,575",//upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_the_Dominican_Republic.svg/720px-Flag_of_the_Dominican_Republic.svg.png
+51,Ecuador,Quito,-0.21666666699999998,-78.5,EC,Ekwador,"152,422","12,375","128,134",//upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/720px-Flag_of_Ecuador.svg.png
+52,Egypt,Cairo,30.05,31.25,EG,Egipt,"105,297","6,109","98,157",//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/720px-Flag_of_Egypt.svg.png
+53,El Salvador,San Salvador,13.7,-89.2,SV,Salwador,"31,666",922,"27,000",//upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_El_Salvador.svg/720px-Flag_of_El_Salvador.svg.png
+54,Equatorial Guinea,Malabo,3.75,8.783333,GQ,Gwinea Równikowa,"5,070",83,"4,954",//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Equatorial_Guinea.svg/720px-Flag_of_Equatorial_Guinea.svg.png
+55,Eritrea,Asmara,15.33333333,38.933333000000005,ER,Erytrea,414,0,372,//upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/720px-Flag_of_Eritrea.svg.png
+56,Estonia,Tallinn,59.43333333,24.716667,EE,Estonia,"4,078",68,"3,211",//upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flag_of_Estonia.svg/720px-Flag_of_Estonia.svg.png
+57,Ethiopia,Addis Ababa,9.033333333,38.7,ET,Etiopia,"88,434","1,346","42,099",//upload.wikimedia.org/wikipedia/commons/thumb/7/71/Flag_of_Ethiopia.svg/720px-Flag_of_Ethiopia.svg.png
+58,Falkland Islands,Stanley,-51.7,-57.85,FK,Falklandy,13,0,13,//upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_Falkland_Islands.svg/720px-Flag_of_the_Falkland_Islands.svg.png
+59,Faroe Islands,Torshavn,62.0,-6.766667,FO,Wyspy Owcze,483,0,472,//upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flag_of_the_Faroe_Islands.svg/21px-Flag_of_the_Faroe_Islands.svg.png
+60,Fiji,Suva,-18.13333333,178.416667,FJ,Fid¿i,32,2,30,//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Fiji.svg/720px-Flag_of_Fiji.svg.png
+61,Finland,Helsinki,60.16666667,24.933332999999998,FI,Finlandia,"13,424",346,"8,500",//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/720px-Flag_of_Finland.svg.png
+62,France,Paris,48.86666667,2.333333,FR,Francja,"867,197","33,392","104,696",//upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/720px-Flag_of_France.svg.png
+63,French Polynesia,Papeete,-17.53333333,-149.566667,PF,Polinezja Francuska,"3,797",14,"2,844",//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Flag_of_French_Polynesia.svg/720px-Flag_of_French_Polynesia.svg.png
+64,Gabon,Libreville,0.38333333299999994,9.45,GA,Gabon,"8,881",54,"8,430",//upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Gabon.svg/20px-Flag_of_Gabon.svg.png
+65,Georgia,Tbilisi,41.68333333,44.833333,GE,Gruzja,"17,477",136,"8,060",//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Georgia.svg/720px-Flag_of_Georgia.svg.png
+66,Germany,Berlin,52.51666667,13.4,DE,Niemcy,"363,337","9,856","291,900",//upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/720px-Flag_of_Germany.svg.png
+67,Ghana,Accra,5.55,-0.216667,GH,Ghana,"47,199",310,"46,541",//upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/720px-Flag_of_Ghana.svg.png
+68,Gibraltar,Gibraltar,36.13333333,-5.35,GI,Gibraltar,558,0,449,//upload.wikimedia.org/wikipedia/commons/thumb/0/02/Flag_of_Gibraltar.svg/720px-Flag_of_Gibraltar.svg.png
+69,Greece,Athens,37.98333333,23.733333,GR,Grecja,"24,932",500,"9,989",//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/720px-Flag_of_Greece.svg.png
+70,Greenland,Nuuk,64.18333333,-51.75,GL,Grenlandia,16,0,14,//upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_Greenland.svg/720px-Flag_of_Greenland.svg.png
+71,Grenada,Saint George’s,12.05,-61.75,GD,Grenada,25,0,24,//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Grenada.svg/720px-Flag_of_Grenada.svg.png
+72,Guam,Hagatna,13.46666667,144.73333300000002,GU,Guam,"3,617",66,"2,297",//upload.wikimedia.org/wikipedia/commons/thumb/0/07/Flag_of_Guam.svg/720px-Flag_of_Guam.svg.png
+73,Guatemala,Guatemala City,14.61666667,-90.516667,GT,Gwatemala,"101,028","3,515","90,001",//upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Flag_of_Guatemala.svg/720px-Flag_of_Guatemala.svg.png
+74,Guernsey,Saint Peter Port,49.45,-2.5333330000000003,GG,Guernsey,258,13,243,//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_Guernsey.svg/720px-Flag_of_Guernsey.svg.png
+75,Guinea,Conakry,9.5,-13.7,GN,Gwinea,"11,478",70,"10,425",//upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flag_of_Guinea.svg/720px-Flag_of_Guinea.svg.png
+76,Guinea-Bissau,Bissau,11.85,-15.583332999999998,GW,Gwinea Bissau,"2,389",41,"1,782",//upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Guinea-Bissau.svg/720px-Flag_of_Guinea-Bissau.svg.png
+77,Guyana,Georgetown,6.8,-58.15,GY,Gujana,"3,710",109,"2,625",//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_Guyana.svg/720px-Flag_of_Guyana.svg.png
+78,Haiti,Port-au-Prince,18.53333333,-72.333333,HT,Haiti,"8,956",231,"7,213",//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Haiti.svg/720px-Flag_of_Haiti.svg.png
+79,Honduras,Tegucigalpa,14.1,-87.216667,HN,Honduras,"87,594","2,563","34,662",//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Honduras_%282008_Olympics%29.svg/720px-Flag_of_Honduras_%282008_Olympics%29.svg.png
+80,Hong Kong,N/A,0.0,0.0,HK,Hongkong,"5,242",105,"4,973",//upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Flag_of_Hong_Kong.svg/22px-Flag_of_Hong_Kong.svg.png
+81,Hungary,Budapest,47.5,19.083333,HU,Wêgry,"46,290","1,142","14,088",//upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/720px-Flag_of_Hungary.svg.png
+82,Iceland,Reykjavik,64.15,-21.95,IS,Islandia,"4,055",10,"2,804",//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/21px-Flag_of_Iceland.svg.png
+83,India,New Delhi,28.6,77.2,IN,Indie,"7,494,551","114,031","6,597,209",//upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/720px-Flag_of_India.svg.png
+84,Indonesia,Jakarta,-6.166666667,106.816667,ID,Indonezja,"361,867","12,511","285,324",//upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/720px-Flag_of_Indonesia.svg.png
+85,Iran,Tehran,35.7,51.416667,IR,Iran,"530,380","30,375","427,400",//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/720px-Flag_of_Iran.svg.png
+86,Iraq,Baghdad,33.33333333,44.4,IQ,Irak,"426,634","10,254","360,477",//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Iraq.svg/720px-Flag_of_Iraq.svg.png
+87,Ireland,Dublin,53.31666667,-6.233333,IE,Irlandia,"48,678","1,849","24,000",//upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/720px-Flag_of_Ireland.svg.png
+88,Isle of Man,Douglas,54.15,-4.483333,IM,Isle of Man,348,24,317,//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_the_Isle_of_Man.svg/720px-Flag_of_the_Isle_of_Man.svg.png
+89,Israel,Jerusalem,31.76666667,35.233333,IL,Izrael,"302,832","2,190","266,910",//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/21px-Flag_of_Israel.svg.png
+90,Italy,Rome,41.9,12.483333,IT,W³ochy,"402,536","36,474","249,127",//upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/720px-Flag_of_Italy.svg.png
+91,Jamaica,Kingston,18.0,-76.8,JM,Jamajka,"8,195",168,"3,653",//upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Jamaica.svg/720px-Flag_of_Jamaica.svg.png
+92,Japan,Tokyo,35.68333333,139.75,JP,Japonia,"92,656","1,670","85,485",//upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/720px-Flag_of_Japan.svg.png
+93,Jersey,Saint Helier,49.18333333,-2.1,JE,Jersey,490,32,405,//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Flag_of_Jersey.svg/720px-Flag_of_Jersey.svg.png
+94,Jordan,Amman,31.95,35.933333000000005,JO,Jordania,"36,053",330,"6,773",//upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Flag_of_Jordan.svg/720px-Flag_of_Jordan.svg.png
+95,Kazakhstan,Astana,51.16666667,71.416667,KZ,Kazachstan,"109,406","1,768","105,001",//upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kazakhstan.svg/720px-Flag_of_Kazakhstan.svg.png
+96,Kenya,Nairobi,-1.283333333,36.816666999999995,KE,Kenia,"44,196",825,"31,752",//upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Kenya.svg/720px-Flag_of_Kenya.svg.png
+97,Kosovo,Pristina,42.66666667,21.166667,KO,Kosowo,"16,754",652,"14,617",//upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Flag_of_Kosovo.svg/21px-Flag_of_Kosovo.svg.png
+98,Kuwait,Kuwait City,29.36666667,47.966667,KW,Kuwejt,"116,146",701,"107,860",//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Flag_of_Kuwait.svg/720px-Flag_of_Kuwait.svg.png
+99,Kyrgyzstan,Bishkek,42.86666667,74.6,KG,Kirgistan,"51,490","1,108","45,509",//upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/720px-Flag_of_Kyrgyzstan.svg.png
+100,Laos,Vientiane,17.96666667,102.6,LA,Laos,23,0,22,//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Laos.svg/720px-Flag_of_Laos.svg.png
+101,Latvia,Riga,56.95,24.1,LV,£otwa,"3,392",43,"1,329",//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Latvia.svg/720px-Flag_of_Latvia.svg.png
+102,Lebanon,Beirut,33.86666667,35.5,LB,Liban,"61,284",517,"27,197",//upload.wikimedia.org/wikipedia/commons/thumb/5/59/Flag_of_Lebanon.svg/720px-Flag_of_Lebanon.svg.png
+103,Lesotho,Maseru,-29.31666667,27.483333000000002,LS,Lesotho,"1,822",42,961,//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Flag_of_Lesotho.svg/720px-Flag_of_Lesotho.svg.png
+104,Liberia,Monrovia,6.3,-10.8,LR,Liberia,"1,377",82,"1,268",//upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Flag_of_Liberia.svg/720px-Flag_of_Liberia.svg.png
+105,Libya,Tripoli,32.88333333,13.166667000000002,LY,Libia,"47,845",699,"26,062",//upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Libya.svg/720px-Flag_of_Libya.svg.png
+106,Liechtenstein,Vaduz,47.13333333,9.516667,LI,Liechtenstein,217,1,132,//upload.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_Liechtenstein.svg/720px-Flag_of_Liechtenstein.svg.png
+107,Lithuania,Vilnius,54.68333333,25.316667000000002,LT,Litwa,"7,521",113,"3,097",//upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Lithuania.svg/720px-Flag_of_Lithuania.svg.png
+108,Luxembourg,Luxembourg,49.6,6.116667,LU,Luksemburg,"10,646",133,"8,468",//upload.wikimedia.org/wikipedia/commons/thumb/d/da/Flag_of_Luxembourg.svg/720px-Flag_of_Luxembourg.svg.png
+109,Macau,N/A,0.0,0.0,MO,Makau,46,0,46,//upload.wikimedia.org/wikipedia/commons/thumb/6/63/Flag_of_Macau.svg/720px-Flag_of_Macau.svg.png
+110,Madagascar,Antananarivo,-18.91666667,47.516667,MG,Madagaskar,"16,810",238,"16,215",//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Madagascar.svg/720px-Flag_of_Madagascar.svg.png
+111,Malawi,Lilongwe,-13.96666667,33.783333,MW,Malawi,"5,852",181,"4,740",//upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Flag_of_Malawi.svg/720px-Flag_of_Malawi.svg.png
+112,Malaysia,Kuala Lumpur,3.166666667,101.7,MY,Malezja,"20,498",187,"13,262",//upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_Malaysia.svg/720px-Flag_of_Malaysia.svg.png
+113,Maldives,Male,4.166666667,73.5,MV,Malediwy,"11,178",36,"10,097",//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Maldives.svg/720px-Flag_of_Maldives.svg.png
+114,Mali,Bamako,12.65,-8.0,ML,Mali,"3,379",132,"2,570",//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Mali.svg/720px-Flag_of_Mali.svg.png
+115,Malta,Valletta,35.88333333,14.5,MT,Malta,"4,282",45,"3,142",//upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Malta.svg/720px-Flag_of_Malta.svg.png
+116,Mauritania,Nouakchott,18.06666667,-15.966667000000001,MR,Mauretania,"7,607",163,"7,342",//upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flag_of_Mauritania.svg/720px-Flag_of_Mauritania.svg.png
+117,Mauritius,Port Louis,-20.15,57.483332999999995,MU,Mauritius,417,10,364,//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Mauritius.svg/720px-Flag_of_Mauritius.svg.png
+118,Mexico,Mexico City,19.43333333,-99.133333,MX,Meksyk,"847,108","86,059","615,680",//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/720px-Flag_of_Mexico.svg.png
+119,Moldova,Chisinau,47.0,28.85,MD,Moldova,"66,652","1,569","47,230",//upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Moldova.svg/720px-Flag_of_Moldova.svg.png
+120,Monaco,Monaco,43.73333333,7.4166669999999995,MC,Monaco,260,2,217,//upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/19px-Flag_of_Monaco.svg.png
+121,Mongolia,Ulaanbaatar,47.91666667,106.91666699999999,MN,Mongolia,320,0,311,//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Mongolia.svg/720px-Flag_of_Mongolia.svg.png
+122,Montenegro,Podgorica,42.43333333,19.266667,ME,Czarnogóra,"15,427",231,"10,768",//upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Montenegro.svg/720px-Flag_of_Montenegro.svg.png
+123,Montserrat,Plymouth,16.7,-62.216667,MS,Montserrat,13,1,11,//upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Montserrat.svg/720px-Flag_of_Montserrat.svg.png
+124,Morocco,Rabat,34.01666667,-6.816667,MA,Maroko,"170,911","2,878","141,381",//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/720px-Flag_of_Morocco.svg.png
+125,Mozambique,Maputo,-25.95,32.583333,MZ,Mozambik,"10,707",74,"8,272",//upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Mozambique.svg/720px-Flag_of_Mozambique.svg.png
+126,Myanmar,Rangoon,16.8,96.15,MM,Myanmar,"36,025",880,"17,076",//upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/720px-Flag_of_Myanmar.svg.png
+127,Namibia,Windhoek,-22.56666667,17.083333,NA,Namibia,"12,263",131,"10,419",//upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Namibia.svg/720px-Flag_of_Namibia.svg.png
+128,Nepal,Kathmandu,27.71666667,85.31666700000001,NP,Nepal,"132,246",739,"92,166",//upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Flag_of_Nepal.svg/14px-Flag_of_Nepal.svg.png
+129,Netherlands,Amsterdam,52.35,4.9166669999999995,NL,Holandia,"228,234","6,751",No data,//upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/720px-Flag_of_the_Netherlands.svg.png
+130,New Caledonia,Noumea,-22.26666667,166.45,NC,Nowa Kaledonia,27,0,27,//upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_FLNKS.svg/720px-Flag_of_FLNKS.svg.png
+131,New Zealand,Wellington,-41.3,174.783333,NZ,Nowa Zelandia,"1,530",25,"1,463",//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/720px-Flag_of_New_Zealand.svg.png
+132,Nicaragua,Managua,12.13333333,-86.25,NI,Nikaragua,"5,353",154,"4,225",//upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Nicaragua.svg/720px-Flag_of_Nicaragua.svg.png
+133,Niger,Niamey,13.51666667,2.1166669999999996,NE,Niger,"1,209",69,"1,126",//upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Flag_of_Niger.svg/18px-Flag_of_Niger.svg.png
+134,Nigeria,Abuja,9.083333332999999,7.533333,NG,Nigeria,"61,307","1,123","52,557",//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/720px-Flag_of_Nigeria.svg.png
+135,Northern Cyprus,North Nicosia,35.183333000000005,33.366667,NULL,Pó³nocny Cypr,836,5,782,//upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg/720px-Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg.png
+136,Norway,Oslo,59.91666667,10.75,NO,Norwegia,"16,369",278,"11,863",//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/21px-Flag_of_Norway.svg.png
+137,Oman,Muscat,23.61666667,58.583332999999996,OM,Oman,"108,296","1,071","94,229",//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Oman.svg/720px-Flag_of_Oman.svg.png
+138,Pakistan,Islamabad,33.68333333,73.05,PK,Pakistan,"323,019","6,654","307,069",//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Flag_of_Pakistan.svg/720px-Flag_of_Pakistan.svg.png
+139,Palestine,Jerusalem,31.76666667,35.233333,PS,Palestyna,"46,746",402,"40,162",//upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/720px-Flag_of_Palestine.svg.png
+140,Panama,Panama City,8.966666667,-79.533333,PA,Panama,"124,107","2,557","100,348",//upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/720px-Flag_of_Panama.svg.png
+141,Papua New Guinea,Port Moresby,-9.45,147.183333,PG,Papua Nowa Gwinea,581,7,540,//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Flag_of_Papua_New_Guinea.svg/20px-Flag_of_Papua_New_Guinea.svg.png
+142,Paraguay,Asuncion,-25.26666667,-57.666667000000004,PY,Paragwaj,"54,015","1,179","35,524",//upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/720px-Flag_of_Paraguay.svg.png
+143,Peru,Lima,-12.05,-77.05,PE,Peru,"865,549","33,702","774,356",//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/720px-Flag_of_Peru.svg.png
+144,Philippines,Manila,14.6,120.96666699999999,PH,Filipiny,"356,618","6,652","310,158",//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_the_Philippines.svg/720px-Flag_of_the_Philippines.svg.png
+145,Poland,Warsaw,52.25,21.0,PL,Polska,"175,766","3,573","92,651",//upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/720px-Flag_of_Poland.svg.png
+146,Portugal,Lisbon,38.71666667,-9.133333,PT,Portugalia,"99,911","2,181","59,000",//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/720px-Flag_of_Portugal.svg.png
+147,Puerto Rico,San Juan,18.46666667,-66.116667,PR,Portoryko,"28,293",761,No data,//upload.wikimedia.org/wikipedia/commons/thumb/2/28/Flag_of_Puerto_Rico.svg/720px-Flag_of_Puerto_Rico.svg.png
+148,Qatar,Doha,25.28333333,51.533333,QA,Katar,"129,431",224,"126,406",//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/720px-Flag_of_Qatar.svg.png
+149,Romania,Bucharest,44.43333333,26.1,RO,Rumunia,"180,388","5,872","130,894",//upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/720px-Flag_of_Romania.svg.png
+150,Russia,Moscow,55.75,37.6,RU,Rosja,"1,399,334","24,187","1,070,576",//upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/720px-Flag_of_Russia.svg.png
+151,Rwanda,Kigali,-1.95,30.05,RW,Rwanda,"4,971",34,"4,768",//upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Rwanda.svg/720px-Flag_of_Rwanda.svg.png
+152,Saint Kitts and Nevis,Basseterre,17.3,-62.716667,KN,Saint Kitts i Nevis,19,0,19,//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Saint_Kitts_and_Nevis.svg/720px-Flag_of_Saint_Kitts_and_Nevis.svg.png
+153,Saint Lucia,Castries,14.0,-61.0,LC,œwiêta Lucia,33,0,27,//upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Saint_Lucia.svg/720px-Flag_of_Saint_Lucia.svg.png
+154,Saint Pierre and Miquelon,Saint-Pierre,46.76666667,-56.183333,PM,Saint Pierre i Miquelon,16,0,5,//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/720px-Flag_of_France.svg.png
+155,San Marino,San Marino,43.93333333,12.416667,SM,San Marino,759,42,685,//upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Flag_of_San_Marino.svg/20px-Flag_of_San_Marino.svg.png
+156,Saudi Arabia,Riyadh,24.65,46.7,SA,Arabia Saudyjska,"341,854","5,165","328,165",//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/720px-Flag_of_Saudi_Arabia.svg.png
+157,Senegal,Dakar,14.73333333,-17.633333,SN,Senegal,"15,392",317,"13,756",//upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/720px-Flag_of_Senegal.svg.png
+158,Serbia,Belgrade,44.83333333,20.5,RS,Serbia,"36,160",776,No data,//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/720px-Flag_of_Serbia.svg.png
+159,Seychelles,Victoria,-4.616666667,55.45,SC,Seszele,148,0,144,//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Seychelles.svg/720px-Flag_of_Seychelles.svg.png
+160,Sierra Leone,Freetown,8.483333333,-13.233332999999998,SL,Sierra Leone,"2,327",73,"1,753",//upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Sierra_Leone.svg/720px-Flag_of_Sierra_Leone.svg.png
+161,Singapore,Singapore,1.283333333,103.85,SG,Singapur,"57,904",28,"57,798",//upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/720px-Flag_of_Singapore.svg.png
+162,Sint Maarten,Philipsburg,18.01666667,-63.033333,SX,Sint Maarten,749,22,664,//upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Sint_Maarten.svg/720px-Flag_of_Sint_Maarten.svg.png
+163,Slovakia,Bratislava,48.15,17.116667,SK,S³owacja,"28,268",82,"7,297",//upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/720px-Flag_of_Slovakia.svg.png
+164,Slovenia,Ljubljana,46.05,14.516667000000002,SI,S³owenia,"12,416",184,No data,//upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Flag_of_Slovenia.svg/720px-Flag_of_Slovenia.svg.png
+165,Solomon Islands,Honiara,-9.433333333,159.95,SB,Wyspy Salomona,3,0,0,//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Flag_of_the_Solomon_Islands.svg/720px-Flag_of_the_Solomon_Islands.svg.png
+166,Somalia,Mogadishu,2.066666667,45.333333,SO,Somali,"3,864",99,"3,089",//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Flag_of_Somalia.svg/720px-Flag_of_Somalia.svg.png
+167,Somaliland,Hargeisa,9.55,44.05,NULL,Somaliland,"1,012",32,911,//upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Flag_of_Somaliland.svg/720px-Flag_of_Somaliland.svg.png
+168,South Africa,Pretoria,-25.7,28.216666999999998,ZA,Afryka Po³udniowa,"702,131","18,408","630,436",//upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/720px-Flag_of_South_Africa.svg.png
+169,South Korea,Seoul,37.55,126.983333,KR,Korea Po³udniowa,"25,199",444,"23,312",//upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/720px-Flag_of_South_Korea.svg.png
+170,South Sudan,Juba,4.85,31.616667,SS,Po³udniowy Sudan,"2,817",55,"1,290",//upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Flag_of_South_Sudan.svg/720px-Flag_of_South_Sudan.svg.png
+171,Spain,Madrid,40.4,-3.683333,ES,Hiszpania,"936,560","33,775",No data,//upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/720px-Flag_of_Spain.svg.png
+172,Sri Lanka,Colombo,6.916666667,79.833333,LK,Sri Lanka,"5,497",13,"3,403",//upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Sri_Lanka.svg/720px-Flag_of_Sri_Lanka.svg.png
+173,Sudan,Khartoum,15.6,32.533333,SD,Sudan,"13,691",836,"6,764",//upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Sudan.svg/720px-Flag_of_Sudan.svg.png
+174,Suriname,Paramaribo,5.833333333,-55.166667000000004,SR,Surinam,"5,123",109,"4,936",//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/720px-Flag_of_Suriname.svg.png
+175,Sweden,Stockholm,59.33333333,18.05,SE,Szwecja,"103,200","5,918",No data,//upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/720px-Flag_of_Sweden.svg.png
+176,Switzerland,Bern,46.91666667,7.466667,CH,Szwajcaria,"74,422","1,823","50,600",//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/15px-Flag_of_Switzerland.svg.png
+177,Syria,Damascus,33.5,36.3,SY,Syria,"5,033",245,"1,494",//upload.wikimedia.org/wikipedia/commons/thumb/5/53/Flag_of_Syria.svg/720px-Flag_of_Syria.svg.png
+178,Taiwan,Taipei,25.03333333,121.516667,TW,Tajwan,535,7,491,//upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/720px-Flag_of_the_Republic_of_China.svg.png
+179,Tajikistan,Dushanbe,38.55,68.766667,TJ,Tad¿ykistan,"10,455",80,"9,457",//upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Tajikistan.svg/720px-Flag_of_Tajikistan.svg.png
+180,Tanzania,Dar es Salaam,-6.8,39.283333,TZ,Tanzania,No data,No data,No data,//upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/720px-Flag_of_Tanzania.svg.png
+181,Thailand,Bangkok,13.75,100.516667,TH,Tajlandia,"3,686",59,"3,481",//upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/720px-Flag_of_Thailand.svg.png
+182,The Gambia,Banjul,13.45,-16.566667000000002,GM,Gambia,"3,649",118,"2,649",//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_The_Gambia.svg/720px-Flag_of_The_Gambia.svg.png
+183,Togo,Lome,6.1166666670000005,1.216667,TG,Togo,"2,049",51,"1,517",//upload.wikimedia.org/wikipedia/commons/thumb/6/68/Flag_of_Togo.svg/720px-Flag_of_Togo.svg.png
+184,Trinidad and Tobago,Port of Spain,10.65,-61.516667000000005,TT,Trynidad i Tobago,"5,281",95,"3,584",//upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Trinidad_and_Tobago.svg/720px-Flag_of_Trinidad_and_Tobago.svg.png
+185,Tunisia,Tunis,36.8,10.183333,TN,Tunezja,"40,542",626,"5,032",//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/720px-Flag_of_Tunisia.svg.png
+186,Turkey,Ankara,39.93333333,32.866667,TR,Turcja,"345,678","9,224","302,499",//upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/720px-Flag_of_Turkey.svg.png
+187,Turks and Caicos Islands,Grand Turk,21.46666667,-71.133333,TC,Wyspy Turks i Caicos,698,6,673,//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Flag_of_the_Turks_and_Caicos_Islands.svg/720px-Flag_of_the_Turks_and_Caicos_Islands.svg.png
+188,Uganda,Kampala,0.316666667,32.55,UG,Uganda,"10,455",96,"6,901",//upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flag_of_Uganda.svg/720px-Flag_of_Uganda.svg.png
+189,Ukraine,Kyiv,50.43333333,30.516666999999998,UA,Ukraina,"298,872","5,607","125,377",//upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/720px-Flag_of_Ukraine.svg.png
+190,United Arab Emirates,Abu Dhabi,24.46666667,54.36666700000001,AE,Zjednoczone Emiraty Arabskie,"115,602",463,"107,516",//upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/720px-Flag_of_the_United_Arab_Emirates.svg.png
+191,United Kingdom,London,51.5,-0.083333,GB,Zjednoczone Królestwo,"705,428","43,579",No data,//upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/720px-Flag_of_the_United_Kingdom.svg.png
+192,United States,"Washington, D.C.",38.883333,-77.0,US,Stany Zjednoczone,"8,201,319","222,513","5,213,033",//upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/720px-Flag_of_the_United_States.svg.png
+193,Uruguay,Montevideo,-34.85,-56.166667000000004,UY,Urugwaj,"2,501",51,"2,052",//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/720px-Flag_of_Uruguay.svg.png
+194,Uzbekistan,Tashkent,41.31666667,69.25,UZ,Uzbekistan,"63,124",525,"60,080",//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/720px-Flag_of_Uzbekistan.svg.png
+195,Vatican City,Vatican City,41.9,12.45,VA,Watykan,27,0,15,//upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_the_Vatican_City.svg/15px-Flag_of_the_Vatican_City.svg.png
+196,Venezuela,Caracas,10.48333333,-66.866667,VE,Wenezuela,"85,758",725,"78,294",//upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/720px-Flag_of_Venezuela.svg.png
+197,Vietnam,Hanoi,21.03333333,105.85,VN,Wietnam,"1,134",35,"1,031",//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/720px-Flag_of_Vietnam.svg.png
+198,Wallis and Futuna,Mata-Utu,-13.95,-171.933333,WF,Wallis i Futuna,1,0,0,//upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Flag_of_Wallis_and_Futuna.svg/720px-Flag_of_Wallis_and_Futuna.svg.png
+199,Yemen,Sanaa,15.35,44.2,YE,Jemen,"2,055",596,"1,336",//upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Yemen.svg/720px-Flag_of_Yemen.svg.png
+200,Zambia,Lusaka,-15.41666667,28.283333000000002,ZM,Zambia,"15,789",346,"14,927",//upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Zambia.svg/720px-Flag_of_Zambia.svg.png
+201,Zimbabwe,Harare,-17.81666667,31.033333000000002,ZW,Zimbabwe,"8,110",231,"6,673",//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Zimbabwe.svg/720px-Flag_of_Zimbabwe.svg.png
+202,Aland Islands,Mariehamn,60.11666700000001,19.9,AX,Wyspy Alandzkie,No data,No data,No data,No data
+203,American Samoa,Pago Pago,-14.26666667,-170.7,AS,Samoa Amerykañskie,No data,No data,No data,No data
+204,Antarctica,N/A,0.0,0.0,AQ,Antarktyda,No data,No data,No data,No data
+205,British Indian Ocean Territory,Diego Garcia,-7.3,72.4,IO,Brytyjskie Terytorium Oceanu Indyjskiego,No data,No data,No data,No data
+206,Brunei Darussalam,Bandar Seri Begawan,4.883333333,114.933333,BN,Brunei Darussalam,No data,No data,No data,No data
+207,Christmas Island,The Settlement,-10.41666667,105.71666699999999,CX,Wyspa Bo¿ego Narodzenia,No data,No data,No data,No data
+208,Cocos Islands,West Island,-12.16666667,96.833333,CC,Wyspy Kokosowe,No data,No data,No data,No data
+209,Cook Islands,Avarua,-21.2,-159.76666699999998,CK,Wyspy Cooka,No data,No data,No data,No data
+210,Cote d’Ivoire,Yamoussoukro,6.816666667000001,-5.266667,CI,Wybrze¿e Koœci S³oniowej,No data,No data,No data,No data
+211,Cura?§ao,Willemstad,12.1,-68.916667,CW,Cura? §Ao,No data,No data,No data,No data
+212,Democratic Republic of the Congo,Kinshasa,-4.316666667,15.3,CD,Demokratyczna Republika Konga,No data,No data,No data,No data
+213,Federated States of Micronesia,Palikir,6.916666667,158.15,FM,Federalne Stany Mikronezji,No data,No data,No data,No data
+214,French Southern and Antarctic Lands,Port-aux-Fran?§ais,-49.35,70.216667,TF,Francuskie Terytoria Po³udniowe i Antarktyczne,No data,No data,No data,No data
+215,Heard Island and McDonald Islands,N/A,0.0,0.0,HM,Wyspy Heard i McDonalda,No data,No data,No data,No data
+216,Kiribati,Tarawa,-0.8833333329999999,169.533333,KI,Kiribati,No data,No data,No data,No data
+217,Macedonia,Skopje,42.0,21.433332999999998,MK,Macedonia,No data,No data,No data,No data
+218,Marshall Islands,Majuro,7.1,171.383333,MH,Wyspy Marshalla,No data,No data,No data,No data
+219,Nauru,Yaren,-0.5477,166.920867,NR,Nauru,No data,No data,No data,No data
+220,Niue,Alofi,-19.01666667,-169.916667,NU,Niue,No data,No data,No data,No data
+221,Norfolk Island,Kingston,-29.05,167.966667,NF,Wyspa Norfolk,No data,No data,No data,No data
+222,North Korea,Pyongyang,39.01666667,125.75,KP,Korea Pó³nocna,No data,No data,No data,No data
+223,Northern Mariana Islands,Saipan,15.2,145.75,MP,Mariany Pó³nocne,No data,No data,No data,No data
+224,Palau,Melekeok,7.483333332999999,134.633333,PW,Palau,No data,No data,No data,No data
+225,Pitcairn Islands,Adamstown,-25.06666667,-130.083333,PN,Pitcairn,No data,No data,No data,No data
+226,Republic of Congo,Brazzaville,-4.25,15.283332999999999,CG,Republika Konga,No data,No data,No data,No data
+227,Saint Barthelemy,Gustavia,17.88333333,-62.85,BL,Œwiêty Barthelemy,No data,No data,No data,No data
+228,Saint Helena,Jamestown,-15.93333333,-5.716667,SH,Œwiêta Helena,No data,No data,No data,No data
+229,Saint Martin,Marigot,18.0731,-63.0822,MF,œwiêty Marcin,No data,No data,No data,No data
+230,Saint Vincent and the Grenadines,Kingstown,13.13333333,-61.216667,VC,Saint Vincent i Grenadyny,No data,No data,No data,No data
+231,Samoa,Apia,-13.81666667,-171.76666699999998,WS,Samoa,No data,No data,No data,No data
+232,Sao Tome and Principe,Sao Tome,0.333333333,6.733333,ST,Sao Tome i Principe,No data,No data,No data,No data
+233,South Georgia and South Sandwich Islands,King Edward Point,-54.283333,-36.5,GS,Georgia Po³udniowa i Sandwich Po³udniowy,No data,No data,No data,No data
+234,Svalbard,Longyearbyen,78.21666667,15.633332999999999,SJ,Svalbard,No data,No data,No data,No data
+235,Swaziland,Mbabane,-26.31666667,31.133333,SZ,Suazi,No data,No data,No data,No data
+236,Timor-Leste,Dili,-8.583333332999999,125.6,TL,Timor Wschodni,No data,No data,No data,No data
+237,Tokelau,Atafu,-9.166667,-171.833333,TK,Tokelau,No data,No data,No data,No data
+238,Tonga,Nuku’alofa,-21.13333333,-175.2,TO,Tonga,No data,No data,No data,No data
+239,Turkmenistan,Ashgabat,37.95,58.38333299999999,TM,Turkmenia,No data,No data,No data,No data
+240,Tuvalu,Funafuti,-8.516666667,179.216667,TV,Tuvalu,No data,No data,No data,No data
+241,US Virgin Islands,Charlotte Amalie,18.35,-64.93333299999999,VI,Wyspy Dziewicze Stanów Zjednoczonych,No data,No data,No data,No data
+242,Vanuatu,Port-Vila,-17.73333333,168.316667,VU,Vanuatu,No data,No data,No data,No data
+243,Western Sahara,El-Aai??n,27.153610999999998,-13.203332999999999,EH,Sahara Zachodnia,No data,No data,No data,No data
+243,World,None,0.0,0.0,WRLD,Swiat,No data,No data,No data,No data
