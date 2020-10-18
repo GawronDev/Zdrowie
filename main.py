@@ -69,7 +69,7 @@ class Zdrowie(MDApp):
 
     def on_start(self):
         self.root.ids.content_drawer.update()
-        self.root.ids.corona_map.load_csv_file()
+        self.root.ids.corona_map.get_cases_data()
         self.root.ids.search_box.set_country_filter()
 
     def change_primary_color(self, color):

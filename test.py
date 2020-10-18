@@ -1,18 +1,13 @@
 import pandas as pd
 
-col_list = ["country", "capital", "lat", "lon", "code", "continent"]
+df = pd.DataFrame({"country": ['Afghanistan', "Albania", "Algeria"], "cases": ["No data", "No data", "No data"],
+                   "deaths": ["No data", "No data", "No data"], "recov": ["No data", "No data", "No data"],
+                   "flag_scr": ["No data", "No data", "No data"]})
+print(df)
 
-data = pd.read_csv('countries.csv', error_bad_lines=False, encoding='cp1252', warn_bad_lines=False, sep=';',
-                   usecols=col_list, na_filter=False)
-
-
-min_lat = 12.726084296948185
-min_lon = -174.0234375
-max_lat = 72.44879155730672
-max_lon = -33.3984375
-
-visible = data.loc[(data['lat'].between(min_lat,max_lat, inclusive=False)) &
-                   (data['lon'].between(min_lon, max_lon, inclusive=False))]
-
-print(visible)
-
+updated_list = [['Afghanistan', '40,141', '1,488', '33,561',
+                 '//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/720px-Flag_of_Afghanistan.svg.png'],
+                ['Albania', '16,774', '448', '10,001',
+                 '//upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/21px-Flag_of_Albania.svg.png'],
+                ['Algeria', '54,203', '1,846', '37,971',
+                 '//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/720px-Flag_of_Algeria.svg.png']]

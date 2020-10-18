@@ -1,3 +1,5 @@
+
+# Moduły kivy
 from kivy_garden.mapview import MapView
 from kivy_garden.mapview import MapMarkerPopup
 from kivymd.uix.dialog import MDDialog
@@ -6,18 +8,29 @@ from kivymd.uix.button import MDFlatButton
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.list import OneLineIconListItem
 from kivy.properties import StringProperty
-import pandas as pd
+from kivy.network.urlrequest import UrlRequest
+from kivymd.utils import asynckivy
 from kivy.clock import Clock
+from main import Zdrowie
+
+# Reszta modułów
+from functools import partial
+from bs4 import BeautifulSoup
+import pandas as pd
 
 
 class Map(MapView):
     """Klasa mapy"""
 
     get_marker_timer = None
+    website_content = []
+    updated_data_list = []
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.data = []
+        self.result = None
+        self.source = None
         self.countries_list = []
         self.loaded_markers = []
         self.menu_data = {
@@ -29,6 +42,7 @@ class Map(MapView):
         }
 
     def open_search_dialog(self):
+        """Funkcja otwierająca okienko szukania"""
         self.country_field.text = ""
         self.main_screen_manager.current = "search_dialog"
 
@@ -42,6 +56,156 @@ class Map(MapView):
 
     def center_on_me(self):
         """Funkcja środkująca mape na dancyh współrzędnych"""
+
+    def get_cases_data(self):
+        """Webscrapper który pobiera dane z internetu"""
+
+        try:
+            self.result = UrlRequest("https://en.wikipedia.org/wiki/Template:COVID-19_pandemic_data",
+                                     on_success=partial(self.update_file))
+        except Exception as e:
+            print(e)
+
+    def update_file(self, *args):
+        """Funkcja aktualizująca plik countries_pl.csv"""
+        self.source = self.result.result
+
+        # Czyszcze liste website_content żeby nie ładować danych drugi raz przy refreshu
+        self.website_content.clear()
+
+        soup = BeautifulSoup(self.source, 'lxml')
+
+        covid_data_container = soup.find("table", attrs={"id": "thetable"})
+
+        covid_data_container_body = soup.find("tbody")
+
+        covid_data_rows = covid_data_container_body.findAll("tr")
+
+        for country_row in covid_data_rows[1:]:
+            small_flag_image_source = country_row.find("img")
+            image_source = "No data"
+
+            try:
+                # Przypisuje adres zdjęcia flagi do zmiennej i podmieniam rozdzielczość
+                small_flag_image_source = small_flag_image_source.attrs["src"]
+                image_source = small_flag_image_source.replace("23px", "720px")
+            except AttributeError:
+                small_flag_image_source = "No data"
+
+            # Przypisuje nazwe kraju do zmiennej
+            country_name = country_row.find("a").contents[0]
+
+            # Przypisuje wartości domyślne
+            cases = "No data"
+            deaths = "No data"
+            recoveries = "No data"
+            cases_deaths_recov_container = []
+            cases_deaths_recov_list = []
+
+            try:
+                cases_deaths_recov_container = country_row.findAll("td")
+
+                # Loop znajdujący wszystkie rzędy informacji ze storny
+                for column in cases_deaths_recov_container[:3]:
+                    check = column.find("span")
+                    if check is None:
+                        cases_deaths_recov_list.append(column.contents[0])
+                try:
+                    try:
+                        cases = cases_deaths_recov_list[0]
+                        cases = cases.replace("\n", "")
+                    except IndexError or KeyError:
+                        pass
+
+                    try:
+                        deaths = cases_deaths_recov_list[1]
+                        deaths = deaths.replace("\n", "")
+                    except IndexError or KeyError:
+                        pass
+
+                    try:
+                        recoveries = cases_deaths_recov_list[2]
+                        recoveries = recoveries.replace("\n", "")
+
+                    except IndexError or KeyError:
+                        pass
+
+                except IndexError:
+                    pass
+
+            except AttributeError:
+                pass
+
+            country_data = [country_name, cases, deaths, recoveries, image_source]
+
+            self.website_content.append(country_data)
+
+        # print(self.website_content)
+
+        # Teraz pobrane dane dodaje do pliku .csv
+        col_list = ["country", "capital", "lat", "lon", "code", "polish", "cases", "deaths", "recov", "flag_src"]
+
+        df = pd.read_csv('countries_pl.csv', error_bad_lines=False, encoding='cp1252', warn_bad_lines=False,
+                         sep=';', usecols=col_list, na_filter=False)
+
+        data_list = df.values.tolist()
+
+        self.updated_data_list = []
+
+        # List nazw samych państw, która przyda się później
+        only_country_names_list = []
+
+        # Loop którym aktualizuje liste państw o liczbe zakażeń
+        for data in data_list:
+            for country in self.website_content:
+                if data[0] == country[0]:
+                    cases = country[1]
+                    deaths = country[2]
+                    recoveries = country[3]
+
+                    value_cases = data[6]
+                    value_deaths = data[7]
+                    value_recoveries = data[8]
+
+                    value_cases = cases
+                    value_deaths = deaths
+                    value_recoveries = recoveries
+
+                    updated_country_info = [data[0], data[1], data[2], data[3], data[4], data[5],
+                                            value_cases, value_deaths, value_recoveries, country[4]]
+
+                    self.updated_data_list.append(updated_country_info)
+
+                    only_country_names_list.append(country[0])
+
+                else:
+                    pass
+
+        # Uzupełniam zaktualizowaną liste o państwa które nie miały inforacji o zakażeniach, aby
+        # utrzymać spójność alfabetyczną
+        for data in data_list:
+            if data[0] in only_country_names_list:
+                # print(data[0], "jest już na liście")
+                pass
+            else:
+                # print("Dodano", data[0])
+                self.updated_data_list.append(data)
+
+        print(self.updated_data_list)
+
+        for index, row in df.iterrows():
+            country = row['country']
+            cases_value = row['cases']
+            death_value = row['deaths']
+            recov_value = row['recov']
+            flag_src = row['flag_src']
+            # print(row['country'], row['cases'], row['deaths'], row['recov'], row['flag_src'])
+
+            for country_object in self.updated_data_list:
+                if country == country_object[0]:
+                    print(country, country_object[0])
+                    print(df[country])
+
 
     def menu_data_callback(self, instance):
         """Funkcja obsługująca menu"""
@@ -59,11 +223,10 @@ class Map(MapView):
 
     def load_csv_file(self):
         """Funkcja ładująca dane z pliku .csv"""
+        col_list = ["country", "capital", "lat", "lon", "code", "polish", "cases", "deaths", "recov", "flag_src"]
 
-        col_list = ["country", "capital", "lat", "lon", "code", "continent"]
-
-        self.data = pd.read_csv('countries.csv', error_bad_lines=False, encoding='cp1252', warn_bad_lines=False, sep=';'
-                                , usecols=col_list, na_filter=False)
+        self.data = pd.read_csv('countries_pl.csv', error_bad_lines=False, encoding='cp1252', warn_bad_lines=False,
+                                sep=';', usecols=col_list, na_filter=False)
 
         self.countries_list = self.data.values.tolist()
 
@@ -97,17 +260,16 @@ class Map(MapView):
 
         i = 0
         for country in visible_list:
-            # print(visible_list[i])
-            # print("Index:" + str(i) + "\n")
 
             lat = visible_list[i][2]
             lon = visible_list[i][3]
-            country_name = visible_list[i][0]
+            country_name_en = visible_list[i][0]
+            country_name_pl = visible_list[i][5]
             country_capital = visible_list[i][2]
             country_code = visible_list[i][4]
 
-            marker = CovidMarker(lat=lat, lon=lon, country=country_name, capital=country_capital,
-                                 code=country_code)
+            marker = CovidMarker(lat=lat, lon=lon, country_en=country_name_en, country_pl=country_name_pl,
+                                 capital=country_capital, code=country_code)
 
             if marker in self.loaded_markers:
                 continue
@@ -121,23 +283,31 @@ class Map(MapView):
         self.lat = latitude
         self.lon = lontitude
         self.zoom = 6
+        self.zoom -= 1
 
         print(self.lat, self.lon)
 
 
 class CovidMarker(MapMarkerPopup):
     """Klasa markera na mapie"""
-    def __init__(self, country, capital, code, **kwargs):
+    def __init__(self, country_pl, country_en, capital, code, **kwargs):
         super().__init__(**kwargs)
 
         self.source = "images/map_marker.png"
 
-        self.country_name = country
+        self.app = Zdrowie()
+
+        self.country_name_pl = country_pl
+        self.country_name_en = country_en
         self.capital_name = capital
         self.country_code = code
 
     def on_release(self, *args):
-        print(self.country_name)
+
+        if self.app.language == "pl":
+            print(self.country_name_pl)
+        else:
+            print(self.country_name_en)
 
 
 class CustomOneLineIconListItem(OneLineIconListItem):
@@ -146,15 +316,23 @@ class CustomOneLineIconListItem(OneLineIconListItem):
 
 
 class SearchBox(Screen):
+    app = Zdrowie()
+
     def set_country_filter(self, text="", search=False):
         """Klasa filtrująca kraje"""
 
         self.rv.data = []
 
         for country_name in self.corona_map.countries_list:
-            country = country_name[0]
+
+            if self.app.language == "pl":
+                country = country_name[5]
+            else:
+                country = country_name[0]
+
+            capital_text = text.capitalize()
             if search:
-                if text in country:
+                if capital_text in country:
                     self.rv.data.append({"viewclass": "CustomOneLineIconListItem",
                                          "icon": "earth",
                                          "text": country,
@@ -174,6 +352,7 @@ class SearchBox(Screen):
 
         country_lat = None
         country_lon = None
+
         for country in contry_list:
             if country_name in country:
                 print("Przenoszenie do:", country)
