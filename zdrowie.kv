@@ -1,5 +1,6 @@
 #:import Ustawienia ustawienia
 #:import Map map
+#:import Show phone_numbers
 #:import images_path kivymd.images_path
 #:import CardTransition kivy.uix.screenmanager.CardTransition
 #:import NoTransition kivy.uix.screenmanager.NoTransition
@@ -10,6 +11,8 @@
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 
+
+<Show>:
 
 <CustomOneLineIconListItem>:
     on_release: self.parent.parent.search_box.set_coordinates(self.text)
@@ -170,9 +173,9 @@ Screen:
                     Screen:
                         size_hint_y: 1.0 - toolbar.height/root.height
                         name: "phone_numbers"
-                        MDLabel:
-                            pos: self.pos
-                            text: "Numery telefonu"
+
+                        BoxLayout:
+                            Show:
 
                     Screen:
                         name: "diagnose"
