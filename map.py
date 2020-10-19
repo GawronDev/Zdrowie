@@ -196,6 +196,10 @@ class Map(MapView):
 
         self.updated_data = pd.DataFrame(self.updated_data_list, columns=col_list)
 
+        self.countries_list = self.updated_data.values.tolist()
+
+        self.search_box.set_country_filter()
+
     def menu_data_callback(self, instance):
         """Funkcja obsługująca menu"""
 
@@ -209,11 +213,6 @@ class Map(MapView):
             self.open_search_dialog()
         elif instance.icon == "information-variant":
             self.open_info()
-
-    def load_csv_file(self):
-        """Funkcja ładująca dane"""
-
-        self.countries_list = self.updated_data.values.tolist()
 
     def start_get_markers_in_fov(self):
         """Funckja stopująca ładowanie się markerów przy ciągłym scrollowaniu"""
