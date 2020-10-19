@@ -5,6 +5,5 @@ from kivy.uix.scrollview import ScrollView
 
 
 class Show(ScrollView):
-    def __init__(self):
-        super(Show, self).__init__()
-        self.icon = 'images/countries/Austria.png'
+    def __init__(self, **kwargs):
+        super(Show, self).__init__(**kwargs)
