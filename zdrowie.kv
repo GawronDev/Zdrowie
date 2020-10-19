@@ -2,6 +2,7 @@
 #:import Map map
 #:import CountrySelect phone_numbers
 #:import CountryWidget phone_numbers
+#:import Show phone_numbers
 #:import images_path kivymd.images_path
 #:import CardTransition kivy.uix.screenmanager.CardTransition
 #:import NoTransition kivy.uix.screenmanager.NoTransition
@@ -12,6 +13,8 @@
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 
+
+<Show>:
 
 <CustomOneLineIconListItem>:
     on_release: self.parent.parent.search_box.set_coordinates(self.text)
@@ -177,6 +180,10 @@ Screen:
                             ScrollView:
                                 CountrySelect:
                                     CountryWidget:
+                                        show_list: show_list
+                                        icon: show_list.icon
+                                        Show:
+                                            id: show_list
 
 
                     Screen:
