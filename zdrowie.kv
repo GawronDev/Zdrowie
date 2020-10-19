@@ -1,5 +1,7 @@
 #:import Ustawienia ustawienia
 #:import Map map
+#:import CountrySelect phone_numbers
+#:import CountryWidget phone_numbers
 #:import images_path kivymd.images_path
 #:import CardTransition kivy.uix.screenmanager.CardTransition
 #:import NoTransition kivy.uix.screenmanager.NoTransition
@@ -170,9 +172,12 @@ Screen:
                     Screen:
                         size_hint_y: 1.0 - toolbar.height/root.height
                         name: "phone_numbers"
-                        MDLabel:
-                            pos: self.pos
-                            text: "Numery telefonu"
+
+                        BoxLayout:
+                            ScrollView:
+                                CountrySelect:
+                                    CountryWidget:
+
 
                     Screen:
                         name: "diagnose"

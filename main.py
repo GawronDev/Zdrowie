@@ -18,6 +18,7 @@ import os
 # zmienia working directory na folder w którym znajduję się ten plik
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
+
 class ContentNavigationDrawer(BoxLayout):
     def update(self):
         self.anchor.clock.update_clock()
