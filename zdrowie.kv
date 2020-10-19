@@ -1,7 +1,5 @@
 #:import Ustawienia ustawienia
 #:import Map map
-#:import CountrySelect phone_numbers
-#:import CountryWidget phone_numbers
 #:import Show phone_numbers
 #:import images_path kivymd.images_path
 #:import CardTransition kivy.uix.screenmanager.CardTransition
@@ -177,14 +175,7 @@ Screen:
                         name: "phone_numbers"
 
                         BoxLayout:
-                            ScrollView:
-                                CountrySelect:
-                                    CountryWidget:
-                                        show_list: show_list
-                                        icon: show_list.icon
-                                        Show:
-                                            id: show_list
-
+                            Show:
 
                     Screen:
                         name: "diagnose"

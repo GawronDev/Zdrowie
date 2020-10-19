@@ -1,19 +1,10 @@
 from kivymd.uix.list import OneLineAvatarIconListItem
 from kivymd.uix.list import IconLeftWidget
 from kivy.properties import StringProperty
+from kivy.uix.scrollview import ScrollView
 
 
-class CountrySelect(OneLineAvatarIconListItem):
-    def __init__(self, **kwargs):
-        super(CountrySelect, self).__init__(**kwargs)
-
-
-class CountryWidget(IconLeftWidget):
-    def __init__(self, **kwargs):
-        super(CountryWidget, self).__init__(**kwargs)
-        self.icon = 'images/countries/Polska.png'
-
-
-class Show():
+class Show(ScrollView):
     def __init__(self):
+        super(Show, self).__init__()
         self.icon = 'images/countries/Austria.png'
