@@ -1,9 +1,17 @@
-from kivymd.uix.list import OneLineAvatarIconListItem
-from kivymd.uix.list import IconLeftWidget
-from kivy.properties import StringProperty
-from kivy.uix.scrollview import ScrollView
+from kivymd.uix.list import MDList
+from kivy.clock import Clock
+from kivymd.uix.list import OneLineListItem
 
 
-class Show(ScrollView):
+
+class Show(MDList):
     def __init__(self, **kwargs):
         super(Show, self).__init__(**kwargs)
+
+        Clock.schedule_once(self.widgets, 1)
+
+    def widgets(self, *args):
+        item = OneLineListItem(text='Austria')
+        self.add_widget(item)
+
+
