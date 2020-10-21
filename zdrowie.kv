@@ -14,6 +14,9 @@
 
 <Show>:
 
+<CountryOneLineIconListItem>:
+    on_release: self.parent.down_button(self.text)
+
 <CustomOneLineIconListItem>:
     on_release: self.parent.parent.search_box.set_coordinates(self.text)
     IconLeftWidget:
