@@ -1,13 +1,31 @@
-import pandas as pd
+from kivy.lang import Builder
+from kivymd.app import MDApp
+from kivy.core.window import Window
 
-outdated_list = pd.DataFrame({"country": ['Afghanistan', "Albania", "Algeria"], "cases": ["No data", "No data", "No data"],
-                   "deaths": ["No data", "No data", "No data"], "recov": ["No data", "No data", "No data"],
-                   "flag_scr": ["No data", "No data", "No data"]})
-print(outdated_list)
+KV = '''
+BoxLayout:
+    orientation: "vertical"
 
-updated_list = [['Afghanistan', '40,141', '1,488', '33,561',
-                 '//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/720px-Flag_of_Afghanistan.svg.png'],
-                ['Albania', '16,774', '448', '10,001',
-                 '//upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/21px-Flag_of_Albania.svg.png'],
-                ['Algeria', '54,203', '1,846', '37,971',
-                 '//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/720px-Flag_of_Algeria.svg.png']]
+    MDToolbar:
+        id: layout
+        title: "MDToolbar"
+        canvas:
+            Rectangle:
+                source: 'images/logo.png'
+                pos: (((self.parent.size[0])/2)-30,self.pos[1])
+                size: self.parent.width, 60
+
+    MDLabel:
+        text: "Content"
+        halign: "center"
+'''
+
+
+class Test(MDApp):
+    def build(self):
+        return Builder.load_string(KV)
+
+
+Window.show_cursor = True
+
+Test().run()

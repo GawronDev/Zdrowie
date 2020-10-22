@@ -10,11 +10,85 @@
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 
-
 <CustomOneLineIconListItem>:
     on_release: self.parent.parent.search_box.set_coordinates(self.text)
     IconLeftWidget:
         icon: root.icon
+
+<Content>:
+    orientation: "vertical"
+    size_hint_y: None
+    height: dp(350)
+    padding: dp(5)
+    spacing: dp(5)
+    BoxLayout:
+        height: "350dp"
+        orientation: "vertical"
+        MDLabel:
+            text: root.country_name
+            font_style: "H4"
+        GridLayout:
+            cols: 2
+            spacing: dp(50)
+            MDLabel:
+                text: u"Liczba zaka\u017ce\u0144"
+            MDLabel:
+                text: root.cases
+            MDLabel:
+                text: u"Liczba zgon\u00F3w"
+            MDLabel:
+                text: root.deaths
+            MDLabel:
+                text: u"Liczba wyzdrowie\u0144"
+            MDLabel:
+                text: root.recoveries
+
+<CountryDialog>:
+    title_color: [0, 0, 0, 1]
+    separator_color: app.theme_cls.primary_color
+    title_size: 24
+    background: "images/white_background.png"
+    orientation: "vertical"
+    size_hint_y: None
+    size_hint: .8, .5
+    padding: 20
+    spacing: 20
+    BoxLayout:
+        orientation: "vertical"
+        GridLayout:
+            cols: 2
+
+            MDLabel:
+                text: root.country_name
+                font_style: "H4"
+
+            AsyncImage:
+                source: root.flag_source
+
+        GridLayout:
+            cols: 2
+            # spacing: dp(50)
+            MDLabel:
+                text: u"Liczba zaka\u017ce\u0144"
+            MDLabel:
+                text: root.cases
+            MDLabel:
+                text: u"Liczba zgon\u00F3w"
+            MDLabel:
+                text: root.deaths
+            MDLabel:
+                text: u"Liczba wyzdrowie\u0144"
+            MDLabel:
+                text: root.recoveries
+
+
+
+
+
+
+
+
+
 
 <Map>:
 
