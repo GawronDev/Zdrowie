@@ -15,7 +15,7 @@ import time
 import pickle
 import os
 
-# zmienia working directory na folder w którym znajduję się ten plik
+# Zmienia working directory na folder w którym znajduję się ten plik
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -56,7 +56,7 @@ class Zdrowie(MDApp):
 
     # Aplikacja dostępna jest w dwóch językach, i tutaj jest zmienna definiująca który język wyświetlać.
 
-    language = "pl"
+    language = StringProperty("pl")
     search_dialog = None
     toolbar_image_source = "images/logo.png"
     color = "Red"
@@ -74,7 +74,6 @@ class Zdrowie(MDApp):
     def on_start(self):
         self.root.ids.content_drawer.update()
         self.root.ids.corona_map.get_cases_data()
-        self.root.ids.search_box.set_country_filter()
 
     def change_primary_color(self, color):
         """Funkcja zmienająca i zapsuająca kolor aplikacji"""
@@ -83,6 +82,13 @@ class Zdrowie(MDApp):
         f = open("config.dat", "wb")
         pickle.dump(color, f)
         f.close()
+
+    def set_language_to_pl(self):
+        self.language = "pl"
+
+    def set_language_to_en(self):
+        self.language = "en"
+        print(self.language)
 
 
 class DateTimeClock(BoxLayout):

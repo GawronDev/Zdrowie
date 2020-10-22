@@ -1,9 +1,11 @@
-from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.picker import MDThemePicker
 
 
-class Ustawienia(GridLayout):
+class Ustawienia(BoxLayout):
     """Klasa ustawień"""
+    def open_language_selector(self):
+        self.main_screen_manager.current = "language_settings"
 
     def open_theme_picker(self):
         theme_dialog = MDThemePicker()

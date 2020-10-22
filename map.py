@@ -5,6 +5,7 @@ from kivy_garden.mapview import MapMarkerPopup
 from kivymd.uix.dialog import MDDialog
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.button import MDFlatButton
+from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.list import OneLineIconListItem
 from kivy.properties import StringProperty
@@ -90,6 +91,8 @@ class Map(MapView):
                 # Przypisuje adres zdjęcia flagi do zmiennej i podmieniam rozdzielczość
                 small_flag_image_source = small_flag_image_source.attrs["src"]
                 image_source = small_flag_image_source.replace("23px", "720px")
+                image_source = image_source.replace("//", "https://")
+
             except AttributeError:
                 small_flag_image_source = "No data"
 
@@ -196,6 +199,10 @@ class Map(MapView):
 
         self.updated_data = pd.DataFrame(self.updated_data_list, columns=col_list)
 
+        self.countries_list = self.updated_data.values.tolist()
+
+        self.search_box.set_country_filter()
+
     def menu_data_callback(self, instance):
         """Funkcja obsługująca menu"""
 
@@ -209,11 +216,6 @@ class Map(MapView):
             self.open_search_dialog()
         elif instance.icon == "information-variant":
             self.open_info()
-
-    def load_csv_file(self):
-        """Funkcja ładująca dane"""
-
-        self.countries_list = self.updated_data.values.tolist()
 
     def start_get_markers_in_fov(self):
         """Funckja stopująca ładowanie się markerów przy ciągłym scrollowaniu"""
@@ -299,7 +301,7 @@ class CovidMarker(MapMarkerPopup):
                 self.source = "images/map_marker_low.png"
             elif 100000 > int(self.cases_int) >= 50000:
                 self.source = "images/map_marker_more.png"
-            elif 250000> int(self.cases_int) >= 100000:
+            elif 250000 > int(self.cases_int) >= 100000:
                 self.source = "images/map_marker_medium.png"
             elif 400000 > int(self.cases_int) >= 250000:
                 self.source = "images/map_marker.png"
@@ -312,12 +314,39 @@ class CovidMarker(MapMarkerPopup):
             # Jeżeli wyskakuje nam ValueError to oznacza, że dany plik nie ma danych
             self.source = "images/map_marker_no_data.png"
 
+    def open_dialog(self):
+        if self.parent.parent.language == "pl":
+            title = "Informacje z kraju:"
+        else:
+            title = "Country data:"
+
+        self.country_dialog = CountryDialog(title=title)
+
+        self.country_dialog.cases = self.cases
+        self.country_dialog.deaths = self.deaths
+        self.country_dialog.recoveries = self.recoveries
+        self.country_dialog.flag_source = self.image
+
+        if self.parent.parent.language == "pl":
+            self.country_dialog.country_name = self.country_name_pl
+        else:
+            self.country_dialog.country_name = self.country_name_en
+
+        print(self.country_dialog.flag_source)
+
+        self.country_dialog.open()
+
     def on_release(self, *args):
 
         if self.app.language == "pl":
             print(self.country_name_pl, self.cases, self.deaths, self.recoveries)
         else:
             print(self.country_name_en, self.cases, self.deaths, self.recoveries)
+
+        self.open_dialog()
+
+    def remove_dialog(self):
+        self.remove_widget(self.country_dialog)
 
 
 class CustomOneLineIconListItem(OneLineIconListItem):
@@ -377,5 +406,10 @@ class SearchBox(Screen):
                 pass
 
 
-
-
+class CountryDialog(Popup):
+    """Klasa dialogu otwierającego się po kliknięciu markera"""
+    cases = StringProperty()
+    deaths = StringProperty()
+    recoveries = StringProperty()
+    country_name = StringProperty()
+    flag_source = StringProperty()

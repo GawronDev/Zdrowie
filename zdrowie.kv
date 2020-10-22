@@ -12,7 +12,6 @@
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 #:import MDList kivymd.uix.list
 
-
 <Show>:
 
 <PhoneContent>:
@@ -24,10 +23,49 @@
         self.parent.down_button(self.text)
         root.parent.parent.parent.parent.current: 'phone_number_list'
 
+
 <CustomOneLineIconListItem>:
     on_release: self.parent.parent.search_box.set_coordinates(self.text)
     IconLeftWidget:
         icon: root.icon
+
+<CountryDialog>:
+    title_color: [0, 0, 0, 1]
+    separator_color: app.theme_cls.primary_color
+    title_size: 24
+    background: "images/white_background.png"
+    orientation: "vertical"
+    size_hint_y: None
+    size_hint: .8, .5
+    padding: 20
+    spacing: 20
+    BoxLayout:
+        orientation: "vertical"
+        GridLayout:
+            cols: 2
+
+            MDLabel:
+                text: root.country_name
+                font_style: "H4"
+
+            AsyncImage:
+                source: root.flag_source
+
+        GridLayout:
+            cols: 2
+            # spacing: dp(50)
+            MDLabel:
+                text: u"Liczba zaka\u017ce\u0144" if app.language == "pl" else "Number of cases"
+            MDLabel:
+                text: root.cases
+            MDLabel:
+                text: u"Liczba zgon\u00F3w" if app.language == "pl" else "Number of deaths"
+            MDLabel:
+                text: root.deaths
+            MDLabel:
+                text: u"Liczba wyzdrowie\u0144" if app.language == "pl" else "Number of recoveries"
+            MDLabel:
+                text: root.recoveries
 
 <Map>:
 
@@ -92,30 +130,25 @@
             id: md_list
             ItemDrawer:
                 icon: "home"
-                text: "Aktualnosci"
+                text: u"Wiadomo\u015Bci" if app.language == "pl" else "News"
                 text_color: self.theme_cls.primary_color
                 on_release:
                     root.secondary_screen_manager.current = "news"
             ItemDrawer:
                 icon: "map-legend"
-                text: "Mapa COVID-19"
+                text: "Mapa COVID-19" if app.language == "pl" else "COVID-19 Map"
                 on_release:
                     root.corona_map.start_get_markers_in_fov()
                     root.secondary_screen_manager.current = "map"
 
             ItemDrawer:
                 icon: "contact-phone"
-                text: "Numery pomocy"
+                text: "Numery pomocy" if app.language == "pl" else "Emergency phone numbers"
                 on_release:
                     root.secondary_screen_manager.current = "phone_numbers"
-            ItemDrawer:
-                icon: "account-heart"
-                text: "E-Diagnoza"
-                on_release:
-                    root.secondary_screen_manager.current = "diagnose"
             ItemDrawerException:
                 icon: "settings"
-                text: "Ustawienia"
+                text: "Ustawienia" if app.language == "pl" else "Settings"
                 on_release: root.main_screen_manager.current = "settings"
 
 
@@ -159,8 +192,10 @@ Screen:
 
                         Map:
                             id: corona_map
+                            language: app.language
                             country_field: country_field
                             main_screen_manager: main_screen_manager
+                            search_box: search_box
                             double_tap_zoom: True
                             zoom: 3
                             on_zoom:
@@ -238,12 +273,6 @@ Screen:
                                                     icon: 'arrow-left'
 
 
-                    Screen:
-                        name: "diagnose"
-
-                        MDLabel:
-                            pos: self.pos
-                            text: "diagnoza"
 
             MDNavigationDrawer:
                 id: nav_drawer
@@ -263,7 +292,7 @@ Screen:
                 id: settings_toolbar
                 ustawienia: ustawienia
                 pos_hint: {"top": 1}
-                title: "Ustawienia"
+                title: "Ustawienia" if app.language == "pl" else "Settings"
                 anchor_title: "center"
                 bold: False
                 elevation: 10
@@ -285,8 +314,8 @@ Screen:
                         orientation: "vertical"
 
                         TwoLineIconListItem:
-                            text: "Kolor aplikacji"
-                            secondary_text: "Zmie\u0144 kolor aplikacji"
+                            text: "Kolor aplikacji" if app.language == "pl" else "App color"
+                            secondary_text: "Zmie\u0144 kolor aplikacji" if app.language == "pl" else "Change the app color"
                             on_release:
                                 ustawienia.open_theme_picker()
 
@@ -294,8 +323,10 @@ Screen:
                                 icon: "format-color-fill"
 
                         TwoLineIconListItem:
-                            text: u"J\u0119zyk"
-                            secondary_text: "Zmie\u0144 j\u0119zyk aplikacji"
+                            text: u"J\u0119zyk" if app.language == "pl" else "Language"
+                            secondary_text: "Zmie\u0144 j\u0119zyk aplikacji" if app.language == "pl" else "Change the display language"
+                            on_release:
+                                ustawienia.open_language_selector()
 
                             IconLeftWidget:
                                 icon: "earth"
@@ -307,7 +338,7 @@ Screen:
                 id: search_toolbar
                 ustawienia: ustawienia
                 pos_hint: {"top": 1}
-                title: "Wyszukaj kraj"
+                title: "Wyszukaj kraj" if app.language == "pl" else "Search"
                 anchor_title: "center"
                 bold: False
                 elevation: 10
@@ -339,8 +370,8 @@ Screen:
                         MDTextField:
                             id: country_field
                             search_box: search_box
-                            hint_text: "Kraj"
-                            helper_text: u"Wpisz nazw\u0119 kraju w j\u0119zyku angielskim"
+                            hint_text: "Kraj" if app.language == "pl" else "Contry name"
+                            helper_text: u"Wpisz nazw\u0119 kraju"  if app.language == "pl" else "Type the country name"
                             helper_text_mode: "on_focus"
                             on_text: search_box.set_country_filter(self.text, True)
 
@@ -363,14 +394,14 @@ Screen:
 
 
         Screen:
-            name: "color_settings"
+            name: "language_settings"
 
             MDToolbar:
                 type: "top"
-                id: color_toolbar
+                id: language_toolbar
                 ustawienia: ustawienia
                 pos_hint: {"top": 1}
-                title: "Kolor aplikacji"
+                title: u"J\u0119zyk" if app.language == "pl" else "Language"
                 anchor_title: "center"
                 bold: False
                 elevation: 10
@@ -379,18 +410,36 @@ Screen:
                     [['arrow-left', lambda x: ustawienia.back_to_settings()]]
 
             Screen:
-                size_hint_y: 1.0 - color_toolbar.height/root.height
+                size_hint_y: 1.0 - language_toolbar.height/root.height
 
                 ScrollView:
                     do_scroll_x: False
                     do_scroll_y: True
                     Ustawienia:
+                        orientation: "vertical"
                         main_screen_manager: main_screen_manager
                         secondary_screen_manager: secondary_screen_manager
                         nav_drawer: nav_drawer
                         content_drawer: content_drawer
                         id: ustawienia
-                        size_hint: 1, 1
-                        cols: 3
-                        padding: 25
-                        spacing: 25
+                        size_hint: 1, None
+                        height: self.minimum_height
+                        TwoLineIconListItem:
+                            text: u"Polski"
+                            secondary_text: "Zmie\u0144 j\u0119zyk aplikacji na Polski"
+
+                            on_press:
+                                app.set_language_to_pl()
+
+                            IconLeftWidget:
+                                icon: "earth"
+
+                        TwoLineIconListItem:
+                            text: u"English"
+                            secondary_text: "Sets the app language to english"
+
+                            on_press:
+                                app.set_language_to_en()
+
+                            IconLeftWidget:
+                                icon: "earth"
