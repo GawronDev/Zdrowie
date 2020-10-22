@@ -10,12 +10,19 @@
 #:import WipeTransition kivy.uix.screenmanager.WipeTransition
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import MDList kivymd.uix.list
 
 
 <Show>:
 
+<PhoneContent>:
+
+<SecondScreen>:
+
 <CountryOneLineIconListItem>:
-    on_release: self.parent.down_button(self.text)
+    on_release:
+        self.parent.down_button(self.text)
+        root.parent.parent.parent.parent.current: 'phone_number_list'
 
 <CustomOneLineIconListItem>:
     on_release: self.parent.parent.search_box.set_coordinates(self.text)
@@ -176,8 +183,59 @@ Screen:
                     Screen:
                         size_hint_y: 1.0 - toolbar.height/root.height
                         name: "phone_numbers"
-                        ScrollView:
-                            Show:
+
+                        ScreenManager:
+                            id: phone_number_screen_manager
+                            Screen:
+                                name: 'country_list'
+                                ScrollView:
+                                    Show:
+                                        id: show
+                                        phone_number_screen_manager: phone_number_screen_manager
+                                        phone_container: phone_container
+                                        phone_list_container: phone_list_container
+                                        phone_provinces: phone_provinces
+
+                            Screen:
+                                name: 'phone_number_list'
+                                ScrollView:
+                                    MDGridLayout:
+                                        id: phone_container
+                                        adaptive_height: True
+                                        cols: 1
+                                        MDList:
+                                            id: phone_list_container
+                                            OneLineIconListItem:
+                                                phone_number_screen_manager: phone_number_screen_manager
+                                                phone_container: phone_container
+                                                show: show
+                                                text: 'Wróć do wyboru kraju'
+                                                on_release:
+                                                    phone_number_screen_manager.current = 'country_list'
+                                                    show.clear_screen()
+                                                IconLeftWidget:
+                                                    icon: 'arrow-left'
+
+
+                            Screen:
+                                name: 'phone_provinces'
+                                ScrollView:
+                                    MDGridLayout:
+                                        adaptive_height: True
+                                        cols: 1
+                                        id: phone_provinces
+                                        MDList:
+                                            id: second_phone_list_container
+                                            OneLineIconListItem:
+                                                phone_number_screen_manager: phone_number_screen_manager
+                                                phone_container: phone_container
+                                                show: show
+                                                text: 'Wróć do wyboru kraju'
+                                                on_release:
+                                                    phone_number_screen_manager.current = 'country_list'
+                                                    show.clear_provinces()
+                                                IconLeftWidget:
+                                                    icon: 'arrow-left'
 
 
                     Screen:
