@@ -1,12 +1,7 @@
-from kivymd.uix.list import MDList, \
-    IconLeftWidget, \
-    OneLineIconListItem, \
-    IconRightWidget, \
-    OneLineAvatarIconListItem, \
+from kivymd.uix.list import MDList, IconLeftWidget, OneLineIconListItem, IconRightWidget, OneLineAvatarIconListItem, \
     ThreeLineListItem
 from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.expansionpanel import MDExpansionPanel, \
-    MDExpansionPanelOneLine
+from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine
 from kivymd.uix.gridlayout import MDGridLayout
 import pickle
 
@@ -29,23 +24,19 @@ class PhoneContent(MDBoxLayout):
         item.add_widget(icon)
 
 
-class ProvinceContent(MDBoxLayout):
+class ProvinceContent(MDList):
     def __init__(self, content, **kwargs):
         super(ProvinceContent, self).__init__(**kwargs)
         self.cols = 1
         self.adaptive_height = True
         for i in content:
-            numbers = i[2] + ', ' + i[3]
+            numbers = i[2] + '     ' + i[3]
             self.add_widget(ThreeLineListItem(text=i[0],
                                               secondary_text=i[1],
                                               tertiary_text=numbers))
 
 
 class CountryOneLineIconListItem(OneLineIconListItem):
-    pass
-
-
-class ProvincesOneLIneIconListItem(OneLineIconListItem):
     pass
 
 
@@ -83,7 +74,7 @@ class Show(MDList):
             self.container = SecondScreen()
             self.phone_container.add_widget(self.container)
             self.prov_item = OneLineAvatarIconListItem(text='Numery ws. koronawirusa w Województwach',
-                                                       on_release=self.provinces_list)
+                                                  on_release=self.provinces_list)
             prov_item_icon_left = IconLeftWidget(icon='images/emergency/mask.png', size_hint=(0.9, 0.9))
             prov_item_icon_right = IconRightWidget(icon='arrow-right')
             self.phone_list_container.add_widget(self.prov_item)
@@ -98,18 +89,11 @@ class Show(MDList):
         self.phone_number_screen_manager.current = 'phone_provinces'
         content = self.pickle_list()[4]
         for key, value in content.items():
-            item = ProvincesOneLIneIconListItem(text=key)
-            icon = IconLeftWidget(icon=f'images/provinces/{key}.png')
+            item = MDExpansionPanel(icon=f'images/provinces/{key}.png',
+                                    content=ProvinceContent(content[key]),
+                                    panel_cls=MDExpansionPanelOneLine(text=key))
+
             self.phone_provinces.add_widget(item)
-            item.add_widget(icon)
-
-    def provinces_phone_list(self, province, *args):
-        self.phone_number_screen_manager.current = 'phone_provinces_list'
-        content = self.pickle_list()[4][province]
-        main_item = MDList()
-        self.phone_provinces_list.add_widget(main_item)
-        main_item.add_widget(ProvinceContent(content))
-
 
     @staticmethod
     def pickle_list():

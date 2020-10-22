@@ -23,9 +23,6 @@
         self.parent.down_button(self.text)
         root.parent.parent.parent.parent.current: 'phone_number_list'
 
-<ProvincesOneLineIconListItem>:
-    on_release:
-        self.parent.show.provinces_phone_list(self.text)
 
 <CustomOneLineIconListItem>:
     on_release: self.parent.parent.search_box.set_coordinates(self.text)
@@ -233,7 +230,6 @@ Screen:
                                         phone_container: phone_container
                                         phone_list_container: phone_list_container
                                         phone_provinces: phone_provinces
-                                        phone_provinces_list: phone_provinces_list
 
                             Screen:
                                 name: 'phone_number_list'
@@ -263,7 +259,6 @@ Screen:
                                         adaptive_height: True
                                         cols: 1
                                         id: phone_provinces
-                                        show: show
                                         MDList:
                                             id: second_phone_list_container
                                             OneLineIconListItem:
@@ -276,11 +271,6 @@ Screen:
                                                     show.clear_provinces()
                                                 IconLeftWidget:
                                                     icon: 'arrow-left'
-
-                            Screen:
-                                name: 'phone_provinces_list'
-                                ScrollView:
-                                    id: phone_provinces_list
 
 
 
