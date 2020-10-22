@@ -315,7 +315,7 @@ class CovidMarker(MapMarkerPopup):
             self.source = "images/map_marker_no_data.png"
 
     def open_dialog(self):
-        if self.app.language == "pl":
+        if self.parent.parent.language == "pl":
             title = "Informacje z kraju:"
         else:
             title = "Country data:"
@@ -327,7 +327,7 @@ class CovidMarker(MapMarkerPopup):
         self.country_dialog.recoveries = self.recoveries
         self.country_dialog.flag_source = self.image
 
-        if self.app.language == "pl":
+        if self.parent.parent.language == "pl":
             self.country_dialog.country_name = self.country_name_pl
         else:
             self.country_dialog.country_name = self.country_name_en
@@ -404,11 +404,6 @@ class SearchBox(Screen):
 
             else:
                 pass
-
-
-class Content(BoxLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class CountryDialog(Popup):

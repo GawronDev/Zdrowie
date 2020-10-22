@@ -56,7 +56,7 @@ class Zdrowie(MDApp):
 
     # Aplikacja dostępna jest w dwóch językach, i tutaj jest zmienna definiująca który język wyświetlać.
 
-    language = "pl"
+    language = StringProperty("pl")
     search_dialog = None
     toolbar_image_source = "images/logo.png"
     color = "Red"
@@ -82,6 +82,13 @@ class Zdrowie(MDApp):
         f = open("config.dat", "wb")
         pickle.dump(color, f)
         f.close()
+
+    def set_language_to_pl(self):
+        self.language = "pl"
+
+    def set_language_to_en(self):
+        self.language = "en"
+        print(self.language)
 
 
 class DateTimeClock(BoxLayout):
