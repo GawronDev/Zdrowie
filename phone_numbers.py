@@ -1,7 +1,12 @@
-from kivymd.uix.list import MDList, IconLeftWidget, OneLineIconListItem, IconRightWidget, OneLineAvatarIconListItem, \
+from kivymd.uix.list import MDList,\
+    IconLeftWidget,\
+    OneLineIconListItem,\
+    IconRightWidget,\
+    OneLineAvatarIconListItem,\
     ThreeLineListItem
+from kivymd.uix.expansionpanel import MDExpansionPanel,\
+    MDExpansionPanelOneLine
 from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine
 from kivymd.uix.gridlayout import MDGridLayout
 import pickle
 
@@ -50,6 +55,7 @@ class Show(MDList):
         self.countries = []
         self.container = None
         self.prov_item = None
+        self.delete_container = None
         for self.key, self.value in self.numbers.items():
             icon = IconLeftWidget(icon=f'images/countries/{self.key}.png', size_hint=(0.9, 0.9))
             self.item = CountryOneLineIconListItem(text=str(self.key))
@@ -88,12 +94,15 @@ class Show(MDList):
     def provinces_list(self, *args):
         self.phone_number_screen_manager.current = 'phone_provinces'
         content = self.pickle_list()[4]
+        self.delete_container = MDGridLayout(cols=1, adaptive_height=True)
+        self.phone_provinces.add_widget(self.delete_container)
         for key, value in content.items():
             item = MDExpansionPanel(icon=f'images/provinces/{key}.png',
                                     content=ProvinceContent(content[key]),
                                     panel_cls=MDExpansionPanelOneLine(text=key))
 
-            self.phone_provinces.add_widget(item)
+            self.delete_container.add_widget(item)
+
 
     @staticmethod
     def pickle_list():
@@ -116,3 +125,4 @@ class Show(MDList):
 
     def clear_provinces(self):
         self.phone_list_container.remove_widget(self.prov_item)
+        self.phone_provinces.remove_widget(self.delete_container)
