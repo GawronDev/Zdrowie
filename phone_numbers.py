@@ -30,7 +30,7 @@ class ProvinceContent(MDList):
         self.cols = 1
         self.adaptive_height = True
         for i in content:
-            numbers = i[2] + ', ' + i[3]
+            numbers = i[2] + '     ' + i[3]
             self.add_widget(ThreeLineListItem(text=i[0],
                                               secondary_text=i[1],
                                               tertiary_text=numbers))
