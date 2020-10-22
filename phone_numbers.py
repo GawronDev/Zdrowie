@@ -24,7 +24,7 @@ class PhoneContent(MDBoxLayout):
         item.add_widget(icon)
 
 
-class ProvinceContent(MDBoxLayout):
+class ProvinceContent(MDList):
     def __init__(self, content, **kwargs):
         super(ProvinceContent, self).__init__(**kwargs)
         self.cols = 1
