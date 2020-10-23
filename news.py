@@ -3,8 +3,8 @@ from kivy.clock import Clock
 from bs4 import BeautifulSoup
 from functools import partial
 from kivymd.utils import asynckivy
-from app_repos.main import Zdrowie
-from app_repos.asyncfitimage import AsyncImage as AsyncFitImageWidget
+from main import Zdrowie
+from asyncfitimage import AsyncImage as AsyncFitImageWidget
 from kivymd.uix.list import TwoLineIconListItem
 from kivymd.uix.button import ButtonBehavior
 from kivy.uix.screenmanager import Screen

@@ -8,7 +8,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
 
 # Pozostałe moduł
-from app_repos.toolbar_with_image import MDToolbarWithImage as ToolBarWithImage
+from toolbar_with_image import MDToolbarWithImage as ToolBarWithImage
 import time
 import pickle
 import os

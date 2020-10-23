@@ -8,7 +8,7 @@ from kivymd.uix.list import OneLineIconListItem
 from kivy.properties import StringProperty
 from kivy.network.urlrequest import UrlRequest
 from kivy.clock import Clock
-from app_repos.main import Zdrowie
+from main import Zdrowie
 
 # Reszta modułów
 from functools import partial
