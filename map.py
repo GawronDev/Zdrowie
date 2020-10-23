@@ -382,7 +382,7 @@ class SearchBox(Screen):
 
     def set_coordinates(self, country_name):
         """Funkcja ustawiająca koordynaty na wybrane państwo"""
-        print(country_name)
+        # print(country_name)
 
         contry_list = self.corona_map.countries_list
 

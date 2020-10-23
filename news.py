@@ -13,6 +13,7 @@ from kivy.properties import StringProperty
 from kivymd.uix.list import OneLineIconListItem
 
 
+
 class AsyncFitImage(AsyncFitImageWidget):
     pass
 
@@ -50,31 +51,56 @@ class Aktualnosci(BoxLayout):
         asynckivy.start(load())
 
     def update(self, *args):
+        """Funkcja aktualizująca wiadomości"""
         async def update():
-            # print("yeah")
             self.src = self.result.result
 
             self.website_content.clear()
 
             soup = BeautifulSoup(self.src, 'lxml')
 
-            # print(soup)
-
-            news_container = soup.find("div", attrs={"class": "main_content"})
-
-            # print(news_container)
+            news_container = soup.find("ul", attrs={"class": "list_tiles"})
 
             news_list = news_container.findAll("li")
 
-            news_list = news_list[0:5]
+            news_list = news_list[0:6]
 
             for article in news_list:
-                print(article)
+                try:
+                    article_image = article.find("img").attrs["data-src"]
+                except Exception:
+                    continue
+
+                print(article_image)
+
+                article_header = article.find("h2").text
+
+                article_text = article.find("p", attrs={"class": "lead"}).text
+
+                article_link = article.find("a").attrs["href"]
+
+                article_preview_content = [article_image, article_header, article_text, article_link]
+
+                self.website_content.append(article_preview_content)
+
+            self.website_content.reverse()
+
+            index = 0
+            for child in self.children:
+                child.header_image.source = self.website_content[index][0]
+                child.header_text.text = self.website_content[index][1]
+                child.sub_text.text = self.website_content[index][2]
+                child.link.link_to_post = self.website_content[index][3]
+
+                index += 1
 
         asynckivy.start(update())
 
     def internet_callback(self):
         pass
+
+    def open_website(self):
+        """Otwiera okno przeglądarki"""
 
     def clear_cards(self):
         async def clear_cards():
