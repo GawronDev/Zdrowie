@@ -8,6 +8,7 @@ from kivymd.uix.expansionpanel import MDExpansionPanel, \
     MDExpansionPanelOneLine
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.gridlayout import MDGridLayout
+from main import Zdrowie
 import pickle
 
 
@@ -46,6 +47,7 @@ class CountryOneLineIconListItem(OneLineIconListItem):
 
 
 class Show(MDList):
+    app = Zdrowie()
     NORMAL = 4
     EXTENDED = 16
 
@@ -106,10 +108,15 @@ class Show(MDList):
 
             self.delete_container.add_widget(item)
 
-    @staticmethod
-    def pickle_list():
+
+    def pickle_list(self):
         load = []
-        with open('countries_data.dat', 'rb') as file:
+        if self.app.language == 'pl':
+            file = 'countries_data.dat'
+        else:
+            file = 'countries_data_eng.dat'
+
+        with open(file, 'rb') as file:
             a = pickle.load(file)
             load.append(a)
             b = pickle.load(file)
@@ -123,15 +130,18 @@ class Show(MDList):
             return load
 
     def clear_add_provinces(self, *args):
-        try:
-            self.clear_provinces()
-        except:
-            pass
+        self.clear_provinces()
         self.provinces_list()
 
     def clear_screen(self):
         self.phone_container.remove_widget(self.container)
 
     def clear_provinces(self):
-        self.phone_list_container.remove_widget(self.prov_item)
-        self.phone_provinces.remove_widget(self.delete_container)
+        try:
+            self.phone_list_container.remove_widget(self.prov_item)
+        except:
+            pass
+        try:
+            self.phone_provinces.remove_widget(self.delete_container)
+        except:
+            pass

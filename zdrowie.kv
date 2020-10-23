@@ -585,6 +585,7 @@ Screen:
                                         phone_list_container: phone_list_container
                                         phone_provinces: phone_provinces
 
+
                             Screen:
                                 name: 'phone_number_list'
                                 ScrollView:
@@ -598,10 +599,11 @@ Screen:
                                                 phone_number_screen_manager: phone_number_screen_manager
                                                 phone_container: phone_container
                                                 show: show
-                                                text: 'Wróć do wyboru kraju'
+                                                text: 'Wróć do wyboru kraju' if app.language == "pl" else "Back to country list"
                                                 on_release:
                                                     phone_number_screen_manager.current = 'country_list'
                                                     show.clear_screen()
+                                                    show.clear_provinces()
                                                 IconLeftWidget:
                                                     icon: 'arrow-left'
 
@@ -619,10 +621,11 @@ Screen:
                                                 phone_number_screen_manager: phone_number_screen_manager
                                                 phone_container: phone_container
                                                 show: show
-                                                text: 'Wróć do wyboru kraju'
+                                                text: 'Wróć do wyboru kraju' if app.language == "pl" else "Back to country list"
                                                 on_release:
                                                     phone_number_screen_manager.current = 'country_list'
                                                     show.clear_provinces()
+                                                    show.clear_screen()
                                                 IconLeftWidget:
                                                     icon: 'arrow-left'
 
