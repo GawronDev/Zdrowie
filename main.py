@@ -19,6 +19,7 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 #Yebac fabi a nnn a
+
 class ContentNavigationDrawer(BoxLayout):
     def update(self):
         self.anchor.clock.update_clock()
