@@ -1,10 +1,10 @@
-from kivymd.uix.list import MDList,\
-    IconLeftWidget,\
-    OneLineIconListItem,\
-    IconRightWidget,\
-    OneLineAvatarIconListItem,\
+from kivymd.uix.list import MDList, \
+    IconLeftWidget, \
+    OneLineIconListItem, \
+    IconRightWidget, \
+    OneLineAvatarIconListItem, \
     ThreeLineListItem
-from kivymd.uix.expansionpanel import MDExpansionPanel,\
+from kivymd.uix.expansionpanel import MDExpansionPanel, \
     MDExpansionPanelOneLine
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.gridlayout import MDGridLayout
@@ -63,7 +63,10 @@ class Show(MDList):
             self.item.add_widget(icon)
 
     def down_button(self, country, *args):
-        print(country)
+        try:
+            self.clear_screen()
+        except:
+            pass
         self.phone_number_screen_manager.current = 'phone_number_list'
         numbers = self.pickle_list()[3][country]
         if len(numbers) == self.NORMAL:
@@ -80,7 +83,7 @@ class Show(MDList):
             self.container = SecondScreen()
             self.phone_container.add_widget(self.container)
             self.prov_item = OneLineAvatarIconListItem(text='Numery ws. koronawirusa w Województwach',
-                                                  on_release=self.provinces_list)
+                                                       on_release=self.clear_add_provinces)
             prov_item_icon_left = IconLeftWidget(icon='images/emergency/mask.png', size_hint=(0.9, 0.9))
             prov_item_icon_right = IconRightWidget(icon='arrow-right')
             self.phone_list_container.add_widget(self.prov_item)
@@ -103,7 +106,6 @@ class Show(MDList):
 
             self.delete_container.add_widget(item)
 
-
     @staticmethod
     def pickle_list():
         load = []
@@ -119,6 +121,13 @@ class Show(MDList):
             e = pickle.load(file)
             load.append(e)
             return load
+
+    def clear_add_provinces(self, *args):
+        try:
+            self.clear_provinces()
+        except:
+            pass
+        self.provinces_list()
 
     def clear_screen(self):
         self.phone_container.remove_widget(self.container)

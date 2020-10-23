@@ -64,7 +64,8 @@ class Map(MapView):
 
         try:
             self.result = UrlRequest("https://en.wikipedia.org/wiki/Template:COVID-19_pandemic_data",
-                                     on_success=partial(self.update_file))
+                                     on_success=partial(self.update_file),
+                                     verify=False)
         except Exception as e:
             print(e)
 
