@@ -11,7 +11,10 @@
 #:import WipeTransition kivy.uix.screenmanager.WipeTransition
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import HomePage main_screen
 #:import MDList kivymd.uix.list
+
+<HomePage>:
 
 <OneLineFilterList>:
     on_release: self.parent.parent.country_filter.set_default_country(self.text)
@@ -211,9 +214,7 @@ Screen:
                         name: "home_screen"
                         size_hint_y: 1.0 - toolbar.height/root.height
 
-                        MDLabel:
-                            pos: self.pos
-                            text: "Ekran glowny"
+                        HomePage:
 
                     Screen:
                         name: "news"
