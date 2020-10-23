@@ -2,17 +2,13 @@
 # Moduły kivy
 from kivy_garden.mapview import MapView
 from kivy_garden.mapview import MapMarkerPopup
-from kivymd.uix.dialog import MDDialog
-from kivy.uix.boxlayout import BoxLayout
-from kivymd.uix.button import MDFlatButton
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.list import OneLineIconListItem
 from kivy.properties import StringProperty
 from kivy.network.urlrequest import UrlRequest
-from kivymd.utils import asynckivy
 from kivy.clock import Clock
-from main import Zdrowie
+from app_repos.main import Zdrowie
 
 # Reszta modułów
 from functools import partial
@@ -398,7 +394,6 @@ class SearchBox(Screen):
                 print("Przenoszenie do:", country)
                 country_lat = country[2]
                 country_lon = country[3]
-
                 self.corona_map.go_to_country(country_lat, country_lon)
 
                 self.ustawienia.back_to_home_screen()

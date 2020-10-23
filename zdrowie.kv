@@ -1,5 +1,6 @@
 #:import Ustawienia ustawienia
 #:import Map map
+#:import Aktualnosci news
 #:import Show phone_numbers
 #:import images_path kivymd.images_path
 #:import CardTransition kivy.uix.screenmanager.CardTransition
@@ -11,6 +12,28 @@
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 #:import MDList kivymd.uix.list
+
+<OneLineFilterList>:
+    on_release: self.parent.parent.country_filter.set_default_country(self.text)
+    IconLeftWidget:
+        icon: root.icon
+
+<ClickToArticle>:
+    text: "Czytaj dalej"
+    secondary_text: "Kliknij aby otworzy\u0107 artyku\u0142"
+
+    IconLeftWidget:
+        icon: "book-open-page-variant"
+
+<AsyncFitImage>:
+    allow_stretch: True
+
+<Aktualnosci>:
+    orientation: "vertical"
+    size_hint_y: None
+    height: self.minimum_height + 20
+    spacing: "30dp"
+    padding: 5, 0, 5, 10
 
 <Show>:
 
@@ -130,8 +153,13 @@
             id: md_list
             ItemDrawer:
                 icon: "home"
-                text: u"Wiadomo\u015Bci" if app.language == "pl" else "News"
+                text: u"Ekran g\u0142\u00F3wny" if app.language == "pl" else "Home screen"
                 text_color: self.theme_cls.primary_color
+                on_release:
+                    root.secondary_screen_manager.current = "home_screen"
+            ItemDrawer:
+                icon: "earth"
+                text: u"Wiadomo\u015Bci" if app.language == "pl" else "News"
                 on_release:
                     root.secondary_screen_manager.current = "news"
             ItemDrawer:
@@ -180,8 +208,336 @@ Screen:
                     transition: SwapTransition()
 
                     Screen:
-                        name: "news"
+                        name: "home_screen"
+                        size_hint_y: 1.0 - toolbar.height/root.height
 
+                        MDLabel:
+                            pos: self.pos
+                            text: "Ekran glowny"
+
+                    Screen:
+                        name: "news"
+                        size_hint_y: 1.0 - toolbar.height/root.height
+
+                        MDScrollViewRefreshLayout:
+                            id: scroll_view_aktualnosci
+                            do_scroll_x: False
+                            do_scroll_y: True
+                            root_layout: root
+                            refresh_callback: aktualnosci.refresh_callback
+
+                            Aktualnosci:
+                                root: root
+                                id: aktualnosci
+                                screen_manager: secondary_screen_manager
+                                login_to_app: main_screen_manager
+                                scroll_view_aktualnosci: scroll_view_aktualnosci
+
+                                MDCard:
+                                    header_image: header_image1
+                                    header_text: header_text1
+                                    sub_text: sub_text1
+                                    link: link1
+                                    orientation: "vertical"
+                                    size_hint: .99, None
+                                    height: box_top1.height + box_bottom1.height + box_more1.height
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    pos_hint: {"center_x": .5}
+
+                                    BoxLayout:
+                                        id: box_top1
+                                        size_hint: 1, None
+                                        orientation: "vertical"
+                                        height: root.height / 3.5
+
+                                        AsyncFitImage:
+                                            id: header_image1
+                                            size_hint: 1, None
+                                            height: box_top1.height
+                                            allow_stretch: True
+
+                                    BoxLayout:
+                                        id: box_bottom1
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+                                        orientation: "vertical"
+                                        spacing: "10dp"
+                                        padding: "10dp"
+
+                                        MDLabel:
+                                            id: header_text1
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                            halign: "center"
+                                            theme_text_color: "Primary"
+                                            font_style: "H5"
+                                            bold: True
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                        MDLabel:
+                                            id: sub_text1
+                                            halign: "justify"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a lectus sed libero varius varius eu ut metus. Aliquam turpis ex, posuere nec volutpat eu, facilisis nec elit. Aenean pharetra id risus at vestibulum. Suspendisse potenti. Phasellus quis nulla leo. Etiam lacinia a erat in maximus. Cras facilisis mi ut gravida bibendum. Vestibulum quis lacinia odio, et malesuada justo."
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                            theme_text_color: "Secondary"
+
+                                    MDSeparator:
+
+                                    BoxLayout:
+                                        id: box_more1
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+
+                                        ClickToArticle:
+                                            id: link1
+                                            on_release:
+                                                aktualnosci.load_article(self.index)
+                                MDCard:
+                                    header_text: header_text2
+                                    sub_text: sub_text2
+                                    header_image: header_image2
+                                    link: link2
+                                    orientation: "vertical"
+                                    size_hint: .99, None
+                                    height: box_top2.height + box_bottom2.height + box_more2.height
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    pos_hint: {"center_x": .5}
+
+                                    BoxLayout:
+                                        id: box_top2
+                                        size_hint: 1, None
+                                        orientation: "vertical"
+                                        height: root.height / 3.5
+
+                                        AsyncFitImage:
+                                            id: header_image2
+                                            size_hint: 1, None
+                                            height: box_top2.height
+                                            allow_stretch: True
+
+                                    BoxLayout:
+                                        id: box_bottom2
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+                                        orientation: "vertical"
+                                        spacing: "10dp"
+                                        padding: "10dp"
+
+                                        MDLabel:
+                                            id: header_text2
+                                            halign: "center"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                            theme_text_color: "Primary"
+                                            font_style: "H5"
+                                            bold: True
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                        MDLabel:
+                                            id: sub_text2
+                                            halign: "justify"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a lectus sed libero varius varius eu ut metus. Aliquam turpis ex, posuere nec volutpat eu, facilisis nec elit. Aenean pharetra id risus at vestibulum. Suspendisse potenti. Phasellus quis nulla leo. Etiam lacinia a erat in maximus. Cras facilisis mi ut gravida bibendum. Vestibulum quis lacinia odio, et malesuada justo."
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                            theme_text_color: "Secondary"
+
+                                    MDSeparator:
+
+                                    BoxLayout:
+                                        id: box_more2
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+
+                                        ClickToArticle:
+                                            id: link2
+                                            on_release:
+                                                aktualnosci.load_article(self.index)
+
+
+                                MDCard:
+                                    header_text: header_text3
+                                    sub_text: sub_text3
+                                    header_image: header_image3
+                                    link: link3
+                                    orientation: "vertical"
+                                    size_hint: .99, None
+                                    height: box_top3.height + box_bottom3.height + box_more3.height
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    pos_hint: {"center_x": .5}
+
+                                    BoxLayout:
+                                        id: box_top3
+                                        size_hint: 1, None
+                                        orientation: "vertical"
+                                        height: root.height / 3.5
+
+                                        AsyncFitImage:
+                                            id: header_image3
+                                            size_hint: 1, None
+                                            height: box_top3.height
+                                            allow_stretch: True
+
+                                    BoxLayout:
+                                        id: box_bottom3
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+                                        orientation: "vertical"
+                                        spacing: "10dp"
+                                        padding: "10dp"
+
+                                        MDLabel:
+                                            id: header_text3
+                                            halign: "center"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                            theme_text_color: "Primary"
+                                            font_style: "H5"
+                                            bold: True
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+
+                                        MDLabel:
+                                            id: sub_text3
+                                            halign: "justify"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a lectus sed libero varius varius eu ut metus. Aliquam turpis ex, posuere nec volutpat eu, facilisis nec elit. Aenean pharetra id risus at vestibulum. Suspendisse potenti. Phasellus quis nulla leo. Etiam lacinia a erat in maximus. Cras facilisis mi ut gravida bibendum. Vestibulum quis lacinia odio, et malesuada justo."
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                            theme_text_color: "Secondary"
+
+                                    MDSeparator:
+
+                                    BoxLayout:
+                                        id: box_more3
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+
+                                        ClickToArticle:
+                                            id: link3
+                                            on_release:
+                                                aktualnosci.load_article(self.index)
+
+                                MDCard:
+                                    header_text: header_text4
+                                    sub_text: sub_text4
+                                    header_image: header_image4
+                                    link: link4
+                                    orientation: "vertical"
+                                    size_hint: .99, None
+                                    height: box_top4.height + box_bottom4.height + box_more4.height
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    pos_hint: {"center_x": .5}
+
+                                    BoxLayout:
+                                        id: box_top4
+                                        size_hint: 1, None
+                                        orientation: "vertical"
+                                        height: root.height / 3.5
+
+                                        AsyncFitImage:
+                                            id: header_image4
+                                            size_hint: 1, None
+                                            height: box_top4.height
+                                            allow_stretch: True
+
+                                    BoxLayout:
+                                        id: box_bottom4
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+                                        orientation: "vertical"
+                                        spacing: "10dp"
+                                        padding: "10dp"
+
+                                        MDLabel:
+                                            id: header_text4
+                                            halign: "center"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                            theme_text_color: "Primary"
+                                            font_style: "H5"
+                                            bold: True
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                        MDLabel:
+                                            id: sub_text4
+                                            halign: "justify"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a lectus sed libero varius varius eu ut metus. Aliquam turpis ex, posuere nec volutpat eu, facilisis nec elit. Aenean pharetra id risus at vestibulum. Suspendisse potenti. Phasellus quis nulla leo. Etiam lacinia a erat in maximus. Cras facilisis mi ut gravida bibendum. Vestibulum quis lacinia odio, et malesuada justo."
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                            theme_text_color: "Secondary"
+
+                                    MDSeparator:
+
+                                    BoxLayout:
+                                        id: box_more4
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+
+                                        ClickToArticle:
+                                            id: link4
+                                            on_release:
+                                                aktualnosci.load_article(self.index)
+
+                                MDCard:
+                                    header_text: header_text5
+                                    sub_text: sub_text5
+                                    header_image: header_image5
+                                    link: link5
+                                    orientation: "vertical"
+                                    size_hint: .99, None
+                                    height: box_top5.height + box_bottom5.height + box_more5.height
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    pos_hint: {"center_x": .5}
+
+                                    BoxLayout:
+                                        id: box_top5
+                                        size_hint: 1, None
+                                        orientation: "vertical"
+                                        height: root.height / 3.5
+
+                                        AsyncFitImage:
+                                            id: header_image5
+                                            size_hint: 1, None
+                                            height: box_top5.height
+                                            allow_stretch: True
+
+                                    BoxLayout:
+                                        id: box_bottom5
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+                                        orientation: "vertical"
+                                        spacing: "10dp"
+                                        padding: "10dp"
+
+                                        MDLabel:
+                                            id: header_text5
+                                            halign: "center"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                            theme_text_color: "Primary"
+                                            font_style: "H5"
+                                            bold: True
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                        MDLabel:
+                                            id: sub_text5
+                                            halign: "justify"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a lectus sed libero varius varius eu ut metus. Aliquam turpis ex, posuere nec volutpat eu, facilisis nec elit. Aenean pharetra id risus at vestibulum. Suspendisse potenti. Phasellus quis nulla leo. Etiam lacinia a erat in maximus. Cras facilisis mi ut gravida bibendum. Vestibulum quis lacinia odio, et malesuada justo."
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                            theme_text_color: "Secondary"
+
+                                    MDSeparator:
+
+                                    BoxLayout:
+                                        id: box_more5
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+
+                                        ClickToArticle:
+                                            id: link5
+                                            on_release:
+                                                aktualnosci.load_article(self.index)
 
 
                     Screen:
@@ -328,6 +684,15 @@ Screen:
 
                             IconLeftWidget:
                                 icon: "earth"
+
+                        TwoLineIconListItem:
+                            text: u"Kraj domy\u015Blny" if app.language == "pl" else "Set default country"
+                            secondary_text: "Zmie\u0144 kraj domy\u015Blny, wy\u015Bwietlany na ekranie g\u0142\u00F3wny." if app.language == "pl" else "Change the default country, displayed on the home screen"
+                            on_release:
+                                ustawienia.open_country_selector()
+
+                            IconLeftWidget:
+                                icon: "home"
         Screen:
             name: "search_dialog"
 
@@ -418,6 +783,9 @@ Screen:
                         main_screen_manager: main_screen_manager
                         secondary_screen_manager: secondary_screen_manager
                         nav_drawer: nav_drawer
+                        country_filter: country_filter
+                        text_field: text_field
+                        app_color: app.color
                         content_drawer: content_drawer
                         id: ustawienia
                         size_hint: 1, None
@@ -441,3 +809,65 @@ Screen:
 
                             IconLeftWidget:
                                 icon: "earth"
+
+        Screen:
+            name: "default_country"
+
+            MDToolbar:
+                type: "top"
+                id: country_toolbar
+                ustawienia: ustawienia
+                pos_hint: {"top": 1}
+                title: u"Kraj domy\u015Blny" if app.language == "pl" else "Default country"
+                anchor_title: "center"
+                bold: False
+                elevation: 10
+                right_action_items: [["", lambda x: x]]
+                left_action_items:
+                    [['arrow-left', lambda x: ustawienia.back_to_settings()]]
+
+            CountryFilter:
+                size_hint_y: 1.0 - country_toolbar.height/root.height
+                id: country_filter
+                recycle_view: recycle_view
+                text_filed: text_field
+                corona_map: corona_map
+                map: corona_map
+                language: app.language
+                default_country: app.default_country
+                ustawienia: ustawienia
+
+                BoxLayout:
+                    recycle_view: recycle_view
+                    country_field: country_field
+                    corona_map: corona_map
+                    orientation: "vertical"
+                    padding: "20dp"
+                    spacing: "10dp"
+
+                    BoxLayout:
+                        size_hint_y: None
+                        height: self.minimum_height
+
+                        MDTextField:
+                            id: text_field
+                            country_filter: country_filter
+                            hint_text: "Kraj" if app.language == "pl" else "Contry name"
+                            helper_text: u"Wpisz nazw\u0119 kraju"  if app.language == "pl" else "Type the country name"
+                            helper_text_mode: "on_focus"
+                            on_text: country_filter.set_country_filter(self.text, True)
+
+
+                    RecycleView:
+                        id: recycle_view
+                        country_filter: country_filter
+                        key_viewclass: 'viewclass'
+                        key_size: 'height'
+
+                        RecycleBoxLayout:
+                            padding: dp(10)
+                            default_size: None, dp(48)
+                            default_size_hint: 1, None
+                            size_hint_y: None
+                            height: self.minimum_height
+                            orientation: 'vertical'

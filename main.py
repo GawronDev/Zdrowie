@@ -1,16 +1,14 @@
 # Moduły kivy
 from kivymd.app import MDApp
-from kivy_garden.mapview import MapView
 from kivymd.theming import ThemableBehavior
 from kivymd.uix.list import OneLineIconListItem, MDList
 from kivymd.uix.label import MDLabel
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, ListProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
-from kivy_garden.mapview import MapSource
 
 # Pozostałe moduł
-from toolbar_with_image import MDToolbarWithImage as ToolBarWithImage
+from app_repos.toolbar_with_image import MDToolbarWithImage as ToolBarWithImage
 import time
 import pickle
 import os
@@ -18,7 +16,6 @@ import os
 # Zmienia working directory na folder w którym znajduję się ten plik
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-#Yebac fabi a nnn a
 
 class ContentNavigationDrawer(BoxLayout):
     def update(self):
@@ -60,7 +57,8 @@ class Zdrowie(MDApp):
     language = StringProperty("pl")
     search_dialog = None
     toolbar_image_source = "images/logo.png"
-    color = "Red"
+    color = StringProperty()
+    default_country = ListProperty()
 
     def build(self):
         f = open("config.dat", "rb")
@@ -75,6 +73,14 @@ class Zdrowie(MDApp):
     def on_start(self):
         self.root.ids.content_drawer.update()
         self.root.ids.corona_map.get_cases_data()
+        self.root.ids.aktualnosci.load()
+        self.set_default_country()
+
+    def set_default_country(self):
+        self.default_country = self.root.ids.country_filter.default_country
+
+    def on_color(self, *args):
+        print("Color changed to", self.color)
 
     def change_primary_color(self, color):
         """Funkcja zmienająca i zapsuająca kolor aplikacji"""
