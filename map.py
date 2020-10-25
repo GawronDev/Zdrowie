@@ -329,7 +329,7 @@ class CovidMarker(MapMarkerPopup):
         else:
             self.country_dialog.country_name = self.country_name_en
 
-        print(self.country_dialog.flag_source)
+        # print(self.country_dialog.flag_source)
 
         self.country_dialog.open()
 

@@ -177,6 +177,16 @@
                 text: "Numery pomocy" if app.language == "pl" else "Emergency phone numbers"
                 on_release:
                     root.secondary_screen_manager.current = "phone_numbers"
+            ItemDrawer:
+                icon: "clock"
+                text: u"Przypomnienia o lekach" if app.language == "pl" else "Daily health reminders"
+                on_release:
+                    root.secondary_screen_manager.current = "health_reminders"
+            ItemDrawer:
+                icon: "account-heart"
+                text: u"E-Diagnoza" if app.language == "pl" else "E-Diagnose"
+                on_release:
+                    root.secondary_screen_manager.current = "diagnose"
             ItemDrawerException:
                 icon: "settings"
                 text: "Ustawienia" if app.language == "pl" else "Settings"
@@ -630,6 +640,21 @@ Screen:
                                                 IconLeftWidget:
                                                     icon: 'arrow-left'
 
+                    Screen:
+                        name: "health_reminders"
+                        size_hint_y: 1.0 - toolbar.height/root.height
+                        MDLabel:
+                            pos_hint: {"center_x": .75}
+                            text: "Funkcja w trakcie budowy..."
+                            font_style: "H4"
+                    Screen:
+                        name: "diagnose"
+                        size_hint_y: 1.0 - toolbar.height/root.height
+
+                        MDLabel:
+                            pos_hint: {"center_x": .75}
+                            text: "Funkcja w trakcie budowy..."
+                            font_style: "H4"
 
 
             MDNavigationDrawer:
@@ -737,7 +762,7 @@ Screen:
                         MDTextField:
                             id: country_field
                             search_box: search_box
-                            hint_text: "Kraj" if app.language == "pl" else "Contry name"
+                            hint_text: "Kraj" if app.language == "pl" else "Country name"
                             helper_text: u"Wpisz nazw\u0119 kraju"  if app.language == "pl" else "Type the country name"
                             helper_text_mode: "on_focus"
                             on_text: search_box.set_country_filter(self.text, True)
@@ -756,9 +781,6 @@ Screen:
                             size_hint_y: None
                             height: self.minimum_height
                             orientation: 'vertical'
-
-
-
 
         Screen:
             name: "language_settings"

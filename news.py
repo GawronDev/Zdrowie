@@ -1,3 +1,4 @@
+# Importy kivy
 from kivy.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
 from bs4 import BeautifulSoup
@@ -12,6 +13,8 @@ from kivy.network.urlrequest import UrlRequest
 from kivy.properties import StringProperty
 from kivymd.uix.list import OneLineIconListItem
 
+# Pozostałe
+import webbrowser
 
 
 class AsyncFitImage(AsyncFitImageWidget):
@@ -99,8 +102,9 @@ class Aktualnosci(BoxLayout):
     def internet_callback(self):
         pass
 
-    def open_website(self):
+    def open_website(self, link):
         """Otwiera okno przeglądarki"""
+        webbrowser.open(link)
 
     def clear_cards(self):
         async def clear_cards():
