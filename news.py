@@ -97,6 +97,8 @@ class Aktualnosci(BoxLayout):
 
                 index += 1
 
+            self.main_container.update_article()
+
         asynckivy.start(update())
 
     def internet_callback(self):

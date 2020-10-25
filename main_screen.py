@@ -24,6 +24,21 @@ class HomePage(BoxLayout):
     covid_recoveries_int = NumericProperty()
     covid_cases_value_text = StringProperty()
     covid_deaths_value_text = StringProperty()
+    covid_recoveries_value_text = StringProperty()
+
+    article_image = StringProperty()
+    article_header = StringProperty()
+    article_text = StringProperty()
+    article_link = StringProperty()
+
+    image = "images/white_background.png"
+    sub_text = StringProperty()
+    header = StringProperty()
+    link = StringProperty()
+
+    header = ""
+    link = ""
+    sub_text = ""
 
     default_country = ListProperty()
     header_text = StringProperty()
@@ -61,6 +76,7 @@ class HomePage(BoxLayout):
             pass
 
         self.covid_cases_value_text = "Zachorowania: " + self.covid_cases
+        self.covid_recoveries_value_text = "Wyzdrowienia: " + self.covid_recoveries
         self.covid_deaths_value_text = "Śmierci: " + self.covid_deaths
 
         self.header_text = "COVID-19 w " + self.default_country[5] + ":"
@@ -68,3 +84,18 @@ class HomePage(BoxLayout):
     def update_default_country(self, new_country):
         self.default_country = new_country
         self.update_values()
+
+    def update_article(self):
+        list = self.aktualnosci.website_content
+
+        print(list[4])
+
+        self.article_image = list[4][0]
+        self.article_header = list[4][1]
+        self.article_text = list[4][2]
+        self.article_link = list[4][3]
+
+        self.image = self.article_image
+        self.header = self.article_header
+        self.sub_text = self.article_text
+        self.link = self.article_link

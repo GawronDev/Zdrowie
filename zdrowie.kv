@@ -228,11 +228,21 @@ Screen:
                             HomePage:
                                 id: main_container
                                 corona_map: corona_map
+                                aktualnosci: aktualnosci
+                                image: article.header_image
+                                header: article.header_text
+                                sub_text: article.sub_text
+                                link: article.link
+
                                 size_hint_y: None
                                 height: self.minimum_height
                                 orientation: "vertical"
                                 padding: dp(15)
                                 spacing: dp(20)
+
+                                MDLabel:
+                                    text: u"Najwa\u017Cniejsze informacje:"
+                                    font_style: "H6"
 
                                 MDCard:
                                     orientation: "vertical"
@@ -253,7 +263,7 @@ Screen:
                                         color: self.theme_cls.primary_color
 
                                     GridLayout:
-                                        cols: 2
+                                        cols: 3
 
                                         MDLabel:
                                             main_container: main_container
@@ -265,16 +275,24 @@ Screen:
                                         MDLabel:
                                             main_container: main_container
                                             halign: "center"
+                                            text: self.main_container.covid_recoveries_value_text
+                                            font_style: "H6"
+                                            color: [0, .8, 0, 1]
+
+                                        MDLabel:
+                                            main_container: main_container
+                                            halign: "center"
                                             text: self.main_container.covid_deaths_value_text
                                             font_style: "H6"
                                             color: [0, 0, 0, .4]
 
-
-
-
+                                MDLabel:
+                                    text: "Ostatni artykul:"
+                                    font_style: "H6"
 
 
                                 MDCard:
+                                    id: article
                                     header_image: header_image1
                                     header_text: header_text1
                                     sub_text: sub_text1
@@ -285,12 +303,13 @@ Screen:
                                     focus_behavior: True
                                     ripple_behavior: True
                                     pos_hint: {"center_x": .5}
+                                    elevation: 0.5
 
                                     BoxLayout:
                                         id: box_top1
                                         size_hint: 1, None
                                         orientation: "vertical"
-                                        height: self.minimum_height
+                                        height: self.minimum_height + 100
 
                                         AsyncFitImage:
                                             id: header_image1
@@ -353,6 +372,7 @@ Screen:
                                 id: aktualnosci
                                 screen_manager: secondary_screen_manager
                                 login_to_app: main_screen_manager
+                                main_container: main_container
                                 scroll_view_aktualnosci: scroll_view_aktualnosci
 
                                 MDCard:
@@ -378,6 +398,7 @@ Screen:
                                             size_hint: 1, None
                                             height: box_top1.height
                                             allow_stretch: True
+
 
                                     BoxLayout:
                                         id: box_bottom1
