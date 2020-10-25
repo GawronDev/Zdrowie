@@ -22,10 +22,10 @@ Poniżej przedstawiamy instrukcje instalacji na systemie Windows.
 Instalacja
 ----------
 
-1. Ze strony https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe pobierz i zainstaluj pythona podążając za instrukcjami instalatora oraz zaznaczając w nim opcje 'add to PATH'.
+1. Ze strony https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe pobierz i zainstaluj pythona podążając za instrukcjami instalatora oraz zaznaczając w nim opcje ***'add to PATH'.***
 2. Ze strony https://git-scm.com/download/win pobierz i zainstaluj git'a podążając za instrukcjami instalatora.
 3. Otwórz terminal/wiersz poleceń.
-4. Wpisz następujące komendy: `(***Uwaga!*** Komendy należy wpisywać ręcznie a nie kopiować)
+4. Wpisz następujące komendy: (***Uwaga!*** Komendy należy wpisywać ręcznie, a nie kopiować)
 ~~~
 git clone 'https://github.com/GawronDev/Zdrowie'
 ~~~
