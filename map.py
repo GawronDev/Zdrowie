@@ -1,11 +1,10 @@
-
 # Moduły kivy
 from kivy_garden.mapview import MapView
 from kivy_garden.mapview import MapMarkerPopup
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.list import OneLineIconListItem
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, ListProperty
 from kivy.network.urlrequest import UrlRequest
 from kivy.clock import Clock
 from main import Zdrowie
@@ -38,6 +37,8 @@ class Map(MapView):
             "map-marker-circle": 'Wyśrodkuj na mnie',
             'magnify': 'Znajdź',
         }
+
+        self.updated_default_country = ListProperty()
 
     def open_search_dialog(self):
         """Funkcja otwierająca okienko szukania"""
@@ -199,6 +200,8 @@ class Map(MapView):
         self.countries_list = self.updated_data.values.tolist()
 
         self.search_box.set_country_filter()
+
+        self.main_container.update_values()
 
     def menu_data_callback(self, instance):
         """Funkcja obsługująca menu"""

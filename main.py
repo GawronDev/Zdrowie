@@ -58,7 +58,7 @@ class Zdrowie(MDApp):
     search_dialog = None
     toolbar_image_source = "images/logo.png"
     color = StringProperty()
-    default_country = ListProperty()
+    default_country = ListProperty(["Poland"])
 
     def build(self):
         f = open("config.dat", "rb")
@@ -74,10 +74,9 @@ class Zdrowie(MDApp):
         self.root.ids.content_drawer.update()
         self.root.ids.corona_map.get_cases_data()
         self.root.ids.aktualnosci.load()
-        self.set_default_country()
 
     def set_default_country(self):
-        self.default_country = self.root.ids.country_filter.default_country
+        self.default_country = self.root.ids.corona_map.get_default_value()
 
     def on_color(self, *args):
         print("Color changed to", self.color)

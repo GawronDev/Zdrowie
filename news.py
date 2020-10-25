@@ -42,7 +42,7 @@ class Aktualnosci(BoxLayout):
         async def load():
             try:
                 self.result = UrlRequest("https://wiadomosci.gazeta.pl/wiadomosci/0,173952.html",
-                                         on_success=partial(self.update))
+                                         on_success=partial(self.update), verify=False)
 
                 self.loaded = True
 
@@ -153,7 +153,7 @@ class CountryFilter(Screen):
         self.recycle_view.data = []
 
         for country_name in self.default_countries_list:
-            print(country_name)
+            # print(country_name)
             if self.language == "pl":
                 country = country_name[0]
             else:
@@ -194,7 +194,9 @@ class CountryFilter(Screen):
                         country_name_pl = country_item[5]
                         country_name_en = country_item[0]
 
-                        self.default_country = [country_name_en, country_name_pl, country_lat, country_lon]
+                        self.default_country = country_item
+
+                        self.main_container.update_default_country(country_item)
 
                     else:
                         pass

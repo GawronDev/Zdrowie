@@ -224,7 +224,118 @@ Screen:
                         name: "home_screen"
                         size_hint_y: 1.0 - toolbar.height/root.height
 
-                        HomePage:
+                        ScrollView:
+                            HomePage:
+                                id: main_container
+                                corona_map: corona_map
+                                size_hint_y: None
+                                height: self.minimum_height
+                                orientation: "vertical"
+                                padding: dp(15)
+                                spacing: dp(20)
+
+                                MDCard:
+                                    orientation: "vertical"
+                                    padding: dp(10)
+                                    spacing: dp(10)
+                                    id: progress_bar_container
+                                    size_hint: 1, None
+                                    height: self.minimum_height + 60
+                                    MDLabel:
+                                        main_container: main_container
+                                        height: dp(50)
+                                        text: self.main_container.header_text
+                                        font_style: "H5"
+
+                                    MDProgressBar:
+                                        main_container: main_container
+                                        value: self.main_container.covid_value
+                                        color: self.theme_cls.primary_color
+
+                                    GridLayout:
+                                        cols: 2
+
+                                        MDLabel:
+                                            main_container: main_container
+                                            halign: "center"
+                                            text: self.main_container.covid_cases_value_text
+                                            font_style: "H6"
+                                            color: self.theme_cls.primary_color
+
+                                        MDLabel:
+                                            main_container: main_container
+                                            halign: "center"
+                                            text: self.main_container.covid_deaths_value_text
+                                            font_style: "H6"
+                                            color: [0, 0, 0, .4]
+
+
+
+
+
+
+                                MDCard:
+                                    header_image: header_image1
+                                    header_text: header_text1
+                                    sub_text: sub_text1
+                                    link: link1
+                                    orientation: "vertical"
+                                    size_hint: 1, None
+                                    height: self.minimum_height
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    pos_hint: {"center_x": .5}
+
+                                    BoxLayout:
+                                        id: box_top1
+                                        size_hint: 1, None
+                                        orientation: "vertical"
+                                        height: self.minimum_height
+
+                                        AsyncFitImage:
+                                            id: header_image1
+                                            size_hint: 1, None
+                                            height: box_top1.height
+                                            allow_stretch: True
+
+                                    BoxLayout:
+                                        id: box_bottom1
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+                                        orientation: "vertical"
+                                        spacing: "10dp"
+                                        padding: "10dp"
+
+                                        MDLabel:
+                                            id: header_text1
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                            halign: "center"
+                                            theme_text_color: "Primary"
+                                            font_style: "H5"
+                                            bold: True
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                        MDLabel:
+                                            id: sub_text1
+                                            halign: "justify"
+                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a lectus sed libero varius varius eu ut metus. Aliquam turpis ex, posuere nec volutpat eu, facilisis nec elit. Aenean pharetra id risus at vestibulum. Suspendisse potenti. Phasellus quis nulla leo. Etiam lacinia a erat in maximus. Cras facilisis mi ut gravida bibendum. Vestibulum quis lacinia odio, et malesuada justo."
+                                            size_hint_y: None
+                                            height: self.texture_size[1]
+                                            theme_text_color: "Secondary"
+
+                                    MDSeparator:
+
+                                    BoxLayout:
+                                        id: box_more1
+                                        size_hint: 1, None
+                                        height: self.minimum_height
+
+                                        ClickToArticle:
+                                            id: link1
+                                            on_release:
+                                                aktualnosci.open_website(self.link_to_post)
+
+
 
                     Screen:
                         name: "news"
@@ -558,7 +669,10 @@ Screen:
                         Map:
                             id: corona_map
                             language: app.language
+                            default_country: app.default_country
+                            app: app
                             country_field: country_field
+                            main_container: main_container
                             main_screen_manager: main_screen_manager
                             search_box: search_box
                             double_tap_zoom: True
@@ -860,7 +974,8 @@ Screen:
                 corona_map: corona_map
                 map: corona_map
                 language: app.language
-                default_country: app.default_country
+                main_container: main_container
+                default_country: main_container.default_country
                 ustawienia: ustawienia
 
                 BoxLayout:

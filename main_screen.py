@@ -1,11 +1,11 @@
-from kivymd.uix.gridlayout import MDGridLayout
-from kivymd.uix.boxlayout import MDBoxLayout
+from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.progressbar import MDProgressBar
 from kivymd.uix.label import MDLabel
 from kivymd.uix.expansionpanel import MDExpansionPanelOneLine, MDExpansionPanel
 from phone_numbers import Show
-from main import Zdrowie
+from kivy.properties import NumericProperty, StringProperty, ListProperty
 from kivymd.uix.list import OneLineIconListItem, IconLeftWidget
+from phone_numbers import Show
 
 
 class CustomList(OneLineIconListItem):
@@ -14,31 +14,57 @@ class CustomList(OneLineIconListItem):
         self.add_widget(IconLeftWidget(icon='phone'))
 
 
-class HomePage(MDGridLayout):
-    app = Zdrowie()
+class HomePage(BoxLayout):
+    covid_value = NumericProperty()
+    covid_cases = StringProperty()
+    covid_deaths = StringProperty()
+    covid_recoveries = StringProperty()
+    covid_cases_int = NumericProperty()
+    covid_deaths_int = NumericProperty()
+    covid_recoveries_int = NumericProperty()
+    covid_cases_value_text = StringProperty()
+    covid_deaths_value_text = StringProperty()
 
-    def __init__(self,  **kwargs):
-        super(HomePage, self).__init__(**kwargs)
-        self.cols = 1
-        self.cont = MDGridLayout(padding='10dp', cols=1, size_hint_y=0.2*self.size_hint_y)
-        self.add_widget(self.cont)
-        self.value = 50
-        self.bar = MDProgressBar(value=self.value)
-        self.lbl1 = MDLabel(text='Liczba:', pos_hint=(1, 1))
-        self.cont.add_widget(self.lbl1)
-        self.cont.add_widget(self.bar)
-        self.twice = MDGridLayout(cols=2)
-        self.cont.add_widget(self.twice)
-        self.twice.add_widget(MDLabel(text='Śmierci', pos_hint=(0.5, 1)))
-        self.twice.add_widget(MDLabel(text='Chroych'))
-        app = self.app
-        self.data_first = Show.pickle_list(self)[0]
-        self.country = 'Polska'
-        self.data_second = Show.pickle_list(self)[3][self.country]
-        for i in range(len(self.data_first)):
-            self.exp = MDExpansionPanel(icon=f'images/emergency/{self.data_first[i]}.png',
-                                        content=CustomList(text=self.data_second[i]),
-                                        panel_cls=MDExpansionPanelOneLine(
-                                            text=self.data_first[i]
-                                        ))
-            self.add_widget(self.exp)
+    default_country = ListProperty()
+    header_text = StringProperty()
+
+    default_country = ['Poland', 'Warsaw', 52.25, 21.0, 'PL', 'Polska', '253,688', '4,438', '112,619',
+                       'https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/720px-Flag_of_Poland.svg.png']
+
+    def update_values(self):
+        list = self.corona_map.updated_data_list
+
+        for country in list:
+
+            if country[0] == self.default_country[0]:
+                print(country)
+                self.covid_cases = country[6]
+                self.covid_deaths = country[7]
+                self.covid_recoveries = country[8]
+
+                self.calculate_covid_value()
+
+            else:
+                pass
+
+    def calculate_covid_value(self):
+
+        try:
+            self.covid_cases_int = self.covid_cases.replace(",", "")
+            self.covid_deaths_int = self.covid_deaths.replace(",", "")
+            self.covid_recoveries_int = self.covid_recoveries.replace(",", "")
+
+            total = int(self.covid_cases_int) + int(self.covid_deaths_int)
+            self.covid_value = int(self.covid_cases_int) / total * 100
+
+        except ValueError:
+            pass
+
+        self.covid_cases_value_text = "Zachorowania: " + self.covid_cases
+        self.covid_deaths_value_text = "Śmierci: " + self.covid_deaths
+
+        self.header_text = "COVID-19 w " + self.default_country[5] + ":"
+
+    def update_default_country(self, new_country):
+        self.default_country = new_country
+        self.update_values()
