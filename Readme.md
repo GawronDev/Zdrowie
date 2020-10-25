@@ -2,7 +2,7 @@ Zdrowie+
 ============
 Aplikacja nadal znajduję się w wersji β i jest ona wciąż tworzona i  aktualizowana.  
 Niektóre z jej funkcji jeszcze są w budowie i zostaną wkrótce wypuszczone.  
-Zawiera ona również błędy, które są na bieżąco łatane .  
+Zawiera ona również błędy, które są na bieżąco łatane.  
 Obecnie jest już w formie możliwej do odpalenia na systemach:  
   * Windows
   * MacOS
