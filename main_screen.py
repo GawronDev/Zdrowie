@@ -5,6 +5,7 @@ from kivymd.uix.expansionpanel import MDExpansionPanelOneLine, MDExpansionPanel
 from phone_numbers import Show
 from kivy.properties import NumericProperty, StringProperty, ListProperty
 from kivymd.uix.list import OneLineIconListItem, IconLeftWidget
+from kivy.clock import Clock
 from phone_numbers import Show
 
 
@@ -62,6 +63,8 @@ class HomePage(BoxLayout):
             else:
                 pass
 
+        self.add_phone_numbers()
+
     def calculate_covid_value(self):
 
         try:
@@ -69,7 +72,7 @@ class HomePage(BoxLayout):
             self.covid_deaths_int = self.covid_deaths.replace(",", "")
             self.covid_recoveries_int = self.covid_recoveries.replace(",", "")
 
-            total = int(self.covid_cases_int) + int(self.covid_deaths_int)
+            total = int(self.covid_cases_int) + int(self.covid_recoveries_int)
             self.covid_value = int(self.covid_cases_int) / total * 100
 
         except ValueError:
@@ -79,23 +82,75 @@ class HomePage(BoxLayout):
         self.covid_recoveries_value_text = "Wyzdrowienia: " + self.covid_recoveries
         self.covid_deaths_value_text = "Śmierci: " + self.covid_deaths
 
-        self.header_text = "COVID-19 w " + self.default_country[5] + ":"
+        country = self.default_country[5]
+
+        try:
+            country = self.default_country[5].replace("ê", "ę")
+
+        except Exception:
+            pass
+
+        try:
+            country = self.default_country[5].replace("³", "ł")
+
+        except Exception:
+            pass
+
+        self.header_text = "COVID-19 w " + country + ":"
 
     def update_default_country(self, new_country):
         self.default_country = new_country
+
+        self.reset_numbers()
+
         self.update_values()
+
+    def reset_numbers(self):
+        self.numbers_container.clear_widgets()
 
     def update_article(self):
         list = self.aktualnosci.website_content
-
-        print(list[4])
 
         self.article_image = list[4][0]
         self.article_header = list[4][1]
         self.article_text = list[4][2]
         self.article_link = list[4][3]
 
-        self.image = self.article_image
-        self.header = self.article_header
-        self.sub_text = self.article_text
-        self.link = self.article_link
+    def refresh_callback(self):
+        def callback(interval):
+            self.update_values()
+            self.update_article()
+            self.root.ids.scroll_view_home.refresh_done()
+            self.app.tick = 0
+            print("Odświeżono aktualności")
+
+        Clock.schedule_once(callback, 1)
+
+    def add_phone_numbers(self):
+        self.data_first = Show.pickle_list(self)[0]
+
+        country = self.default_country[5]
+
+        try:
+           country = self.default_country[5].replace("ê", "ę")
+
+        except Exception:
+            pass
+
+        try:
+            country = self.default_country[5].replace("³", "ł")
+
+        except Exception:
+            pass
+
+        self.data_second = Show.pickle_list(self)[3][country]
+
+
+        for i in range(len(self.data_first)):
+            self.exp = MDExpansionPanel(icon=f'images/emergency/{self.data_first[i]}.png',
+                                        content=CustomList(text=self.data_second[i]),
+                                        panel_cls=MDExpansionPanelOneLine(
+                                            text=self.data_first[i]
+                                        ))
+            self.numbers_container.add_widget(self.exp)
+

@@ -33,8 +33,6 @@ class Map(MapView):
         self.menu_data = {
             'plus': 'Powiększ mape',
             'minus': 'Oddal mape',
-            'information-variant': "Informacje",
-            "map-marker-circle": 'Wyśrodkuj na mnie',
             'magnify': 'Znajdź',
         }
 
@@ -328,7 +326,21 @@ class CovidMarker(MapMarkerPopup):
         self.country_dialog.flag_source = self.image
 
         if self.parent.parent.language == "pl":
+
+            try:
+                self.country_name_pl = self.country_name_pl.replace("ê", "ę")
+
+            except Exception:
+                pass
+
+            try:
+                self.country_name_pl = self.country_name_pl.replace("³", "ł")
+
+            except Exception:
+                pass
+
             self.country_dialog.country_name = self.country_name_pl
+
         else:
             self.country_dialog.country_name = self.country_name_en
 

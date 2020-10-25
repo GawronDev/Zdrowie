@@ -224,15 +224,27 @@ Screen:
                         name: "home_screen"
                         size_hint_y: 1.0 - toolbar.height/root.height
 
-                        ScrollView:
+                        MDScrollViewRefreshLayout:
+                            id: scroll_view_home
+                            main_container: main_container
+                            refresh_callback: main_container.refresh_callback
+                            root_layout: root
                             HomePage:
                                 id: main_container
+                                root: root
+                                app: app
                                 corona_map: corona_map
                                 aktualnosci: aktualnosci
+                                numbers_container: numbers_container
                                 image: article.header_image
                                 header: article.header_text
                                 sub_text: article.sub_text
                                 link: article.link
+
+                                header_image: header_image1
+                                header: header_text1
+                                sub_text: sub_text1
+                                link: link1
 
                                 size_hint_y: None
                                 height: self.minimum_height
@@ -250,7 +262,7 @@ Screen:
                                     spacing: dp(10)
                                     id: progress_bar_container
                                     size_hint: 1, None
-                                    height: self.minimum_height + 60
+                                    height: self.minimum_height + 100
                                     MDLabel:
                                         main_container: main_container
                                         height: dp(50)
@@ -275,14 +287,14 @@ Screen:
                                         MDLabel:
                                             main_container: main_container
                                             halign: "center"
-                                            text: self.main_container.covid_recoveries_value_text
+                                            text: self.main_container.covid_deaths_value_text
                                             font_style: "H6"
-                                            color: [0, .8, 0, 1]
+                                            color: [0, 0, 0, 1]
 
                                         MDLabel:
                                             main_container: main_container
                                             halign: "center"
-                                            text: self.main_container.covid_deaths_value_text
+                                            text: self.main_container.covid_recoveries_value_text
                                             font_style: "H6"
                                             color: [0, 0, 0, .4]
 
@@ -294,7 +306,7 @@ Screen:
                                 MDCard:
                                     id: article
                                     header_image: header_image1
-                                    header_text: header_text1
+                                    header: header_text1
                                     sub_text: sub_text1
                                     link: link1
                                     orientation: "vertical"
@@ -309,10 +321,12 @@ Screen:
                                         id: box_top1
                                         size_hint: 1, None
                                         orientation: "vertical"
-                                        height: self.minimum_height + 100
+                                        height: self.minimum_height
 
                                         AsyncFitImage:
                                             id: header_image1
+                                            main_container: main_container
+                                            source: self.main_container.article_image
                                             size_hint: 1, None
                                             height: box_top1.height
                                             allow_stretch: True
@@ -326,18 +340,21 @@ Screen:
                                         padding: "10dp"
 
                                         MDLabel:
+                                            main_container: main_container
                                             id: header_text1
-                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                            text: self.main_container.article_header
                                             halign: "center"
                                             theme_text_color: "Primary"
                                             font_style: "H5"
                                             bold: True
                                             size_hint_y: None
                                             height: self.texture_size[1]
+
                                         MDLabel:
+                                            main_container: main_container
+                                            text: self.main_container.article_text
                                             id: sub_text1
                                             halign: "justify"
-                                            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a lectus sed libero varius varius eu ut metus. Aliquam turpis ex, posuere nec volutpat eu, facilisis nec elit. Aenean pharetra id risus at vestibulum. Suspendisse potenti. Phasellus quis nulla leo. Etiam lacinia a erat in maximus. Cras facilisis mi ut gravida bibendum. Vestibulum quis lacinia odio, et malesuada justo."
                                             size_hint_y: None
                                             height: self.texture_size[1]
                                             theme_text_color: "Secondary"
@@ -351,9 +368,20 @@ Screen:
 
                                         ClickToArticle:
                                             id: link1
+                                            main_container: main_container
                                             on_release:
-                                                aktualnosci.open_website(self.link_to_post)
+                                                aktualnosci.open_website(self.main_container.article_link)
 
+                                MDLabel:
+                                    text: "Numery ratunkowe:"
+                                    font_style: "H6"
+
+                                MDCard:
+                                    orientation: "vertical"
+                                    padding: dp(10)
+                                    id: numbers_container
+                                    size_hint: 1, None
+                                    height: self.minimum_height
 
 
                     Screen:
