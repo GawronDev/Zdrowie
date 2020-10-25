@@ -1,16 +1,16 @@
 Zdrowie+
 ============
-Aplikacja nadal znajduję się w wersji β i jest ona wciąż tworzona i  aktualizowana.
-Niektóre z jej funkcji jeszcze są w budowie i zostaną wkrótce wypuszczone.
-Zawiera ona również błędy, które są na bieżąco łatane .
-Obecnie jest już w formie możliwej do odpalenia na systemach:
+Aplikacja nadal znajduję się w wersji β i jest ona wciąż tworzona i  aktualizowana.  
+Niektóre z jej funkcji jeszcze są w budowie i zostaną wkrótce wypuszczone.  
+Zawiera ona również błędy, które są na bieżąco łatane .  
+Obecnie jest już w formie możliwej do odpalenia na systemach:  
   * Windows
   * MacOS
   * Android
   * IOS
   * Linux
  
-Poniżej przedstawiamy instrukcje instalacji na systemie Windows.
+Poniżej przedstawiamy instrukcje instalacji na systemie Windows.  
 
 ***Dzięki aplikacji:***
   * będziesz znał najnowsze doniesienia o Koronawirusie
@@ -44,5 +44,5 @@ python3.6 main.py
 Autorzy
 ------------
 
->***Fabian Olczak*** - fabianolczak22@gmail.com
->***Jakub Gawroński*** - kubusgawron@gmail.com
+>***Fabian Olczak*** - fabianolczak22@gmail.com  
+>***Jakub Gawroński*** - kubusgawron@gmail.com  
