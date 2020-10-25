@@ -30,7 +30,7 @@ Instalacja
 git clone 'https://github.com/GawronDev/Zdrowie'
 ~~~
 ~~~
-pip3.6 install kivy kivymd pandas bs4 beautifulsoup4 lxml kivy-garden.mapview
+pip3.6 install kivy kivymd pandas bs4 beautifulsoup4 lxml kivy-garden.mapview docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
 ~~~
 ~~~
 cd Zdrowie
